@@ -1,0 +1,51 @@
+.container {
+  height: 50rem;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .slide {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    -webkit-transition: opacity 0.6s ease;
+    -moz-transition: opacity 0.6s ease;
+    -o-transition: opacity 0.6s ease;
+
+    &.active {
+      opacity: 1;
+    }
+
+    .image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2rem;
+    color: #fff;
+
+    .title {
+      color: #ff9900;
+      font-size: 3rem;
+      font-weight: 600;
+    }
+
+    .description {
+      color: #000;
+      font-weight: 600;
+    }
+  }
+}
