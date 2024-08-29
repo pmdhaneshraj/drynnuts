@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './FlashCard.module.scss'
 import { Button } from 'antd'
 import classNames from 'classnames'
+import { useNavigate } from 'react-router-dom'
 
 const images = [
   {
@@ -11,7 +12,8 @@ const images = [
   },
   {
     type: 'Almond',
-    url: 'https://images.unsplash.com/photo-1617175093792-30a13225201f?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    // url: 'https://images.unsplash.com/photo-1617175093792-30a13225201f?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    url: 'https://images.unsplash.com/photo-1608842850202-06e70ead4c10?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D'
   },
   {
     type: 'Rasins',
@@ -28,20 +30,21 @@ const images = [
 ]
 
 const FlashCard = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    setInterval(() => {
-      setCurrentSlide(prev => {
-        if (prev === images.length - 1) {
-          return 0;
-        }
-        return prev + 1
-      })
-    }, 5000)
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setCurrentSlide(prev => {
+  //       if (prev === images.length - 1) {
+  //         return 0;
+  //       }
+  //       return prev + 1
+  //     })
+  //   }, 5000)
 
-    return () => clearInterval()
-  }, [images]);
+  //   return () => clearInterval()
+  // }, [images]);
 
   return (
     <div className={styles.container}>
@@ -51,7 +54,7 @@ const FlashCard = () => {
       <div className={styles.content}>
         <span className={styles.title}>Premium Dry Fruits & Nuts, Delivered Fresh to Your Door.</span>
         <span className={styles.description}>"Savor the best quality, handpicked from the finest sources."</span>
-        <Button>Shop Now</Button>
+        <Button onClick={() => navigate('/shop')}>Shop Now</Button>
       </div>
     </div>
   )
