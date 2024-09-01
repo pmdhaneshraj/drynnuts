@@ -5,13 +5,19 @@
   width: 100%;
   display: flex;
   align-items: center;
+  border-bottom: 0.1rem solid $border-color;
+  position: absolute;
+
+  .content {
+    padding: 5rem 0;
+  }
 
   .logo {
     height: 3rem;
-    width: auto;
+    width: 15rem;
     margin: 0 1rem;
     cursor: pointer;
-    
+
     .img {
       height: 100%;
       width: 100%;

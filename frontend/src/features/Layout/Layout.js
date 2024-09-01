@@ -8,15 +8,11 @@ import Footer from '../Footer'
 const Layout = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <Header />
-      </div>
+      <Header />
       <div className={styles.content}>
         <Outlet />
       </div>
-      {/* <div className={styles.footer}>
-        <Footer />
-      </div> */}
+      <Footer />
     </div>
   )
 }

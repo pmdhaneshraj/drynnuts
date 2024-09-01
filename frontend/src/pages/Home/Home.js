@@ -61,20 +61,20 @@ const Home = () => {
             <div className={styles.reviewContent}>Today I had a mixture of soaked dry nuts. the taste was ultimate and especially dates taste was yummy.<br /><br />Honest feedback from the heart.</div>
           </div>
           <div span={8} className={styles.review}>
-            <h1>Krishnachand N K</h1>
+            <h1>Monisha</h1>
             <Rate disabled value={5} />
-            <div className={styles.reviewContent}>Today I had a mixture of soaked dry nuts. the taste was ultimate and especially dates taste was yummy. Honest feedback from the heart.</div>
+            <div className={styles.reviewContent}>Packing was really good. And loved the taste of dry pineapple and amla <br /><br />Also the crispness of cashews is so good. All the dry fruits tasted better. <br/><br/>Will bug again for sure.</div>
           </div>
           <div span={8} className={styles.review}>
-            <h1>Krishnachand N K</h1>
+            <h1>Shree</h1>
             <Rate disabled value={5} />
-            <div className={styles.reviewContent}>Today I had a mixture of soaked dry nuts. the taste was ultimate and especially dates taste was yummy. Honest feedback from the heart.</div>
+            <div className={styles.reviewContent}>Product seems superb quality and good packaging... Keep it up.</div>
           </div>
         </div>
       </section>
-      <section className={cx(styles.section)}>
+      <section className={cx(styles.section, styles.grayBg)}>
         <div className={styles.couponContainer}>
-          <h1 className={styles.header}>To keep healthy, eat tasty</h1>
+          <h1 className={styles.couponHeader}>To keep healthy, eat tasty</h1>
           <span className={styles.textCenter}>Enjoy delicious, guilt-free treats with our exclusive offers. Grab your coupon now for a flavorful journey with Trufru products!</span>
           <Button className={styles.btn}>Get Coupon</Button>
         </div>
