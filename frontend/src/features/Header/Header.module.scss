@@ -1,29 +1,21 @@
+@import '../../styles/index.scss';
+
 .container {
   height: 5rem;
   width: 100%;
-  background: linear-gradient(346deg, rgba(2, 0, 36, 1) 0%, rgb(162, 120, 74) 35%);
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
   .logo {
-    margin: 1rem;
-
-    .title {
-      font-size: 3rem;
-      font-weight: 600;
-      color: #fff;
-    }
-  }
-
-  .linkes {
-    margin: 1rem;
-    font-size: 1.6rem;
-
-    .link {
-      margin-left: 1.5rem;
-      color: #fff;
-      text-decoration: none;
+    height: 3rem;
+    width: auto;
+    margin: 0 1rem;
+    cursor: pointer;
+    
+    .img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
     }
   }
 }

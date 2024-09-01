@@ -1,0 +1,32 @@
+.container {
+  padding: 2rem;
+
+  .breadcrumb {
+    :global(.ant-breadcrumb-link) {
+      cursor: pointer;
+    }
+  }
+
+  .productContent {
+    margin: 2rem 0;
+    height: 50rem;
+    width: 100%;
+
+    .select {
+      width: 10rem;
+    }
+  }
+
+  .imageContainer {
+    padding: 2rem;
+    .image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .productContainer {
+    padding: 2rem;
+  }
+}

@@ -1,26 +1,71 @@
+@import '../../styles/index.scss';
+
 .container {
-  .heroSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
+  .header {
+    font-size: 3rem;
+    text-align: center;
   }
 
-  .proposition {
+  .boxContent {
+    padding: 2rem;
+    border: 0.1rem solid rgba(#cfcfcf6f, $alpha: 0.6);
+  }
+  
+  .section {
+    padding: 2rem 10rem;
+  }
+
+  .textCenter {
+    text-align: center;
+  }
+
+  .localShippingIcon {
+    color: $primary-color
+  }
+
+  .valueProtion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15rem;
+
+    .value {
+      width: 25%;
+      padding: 2rem;
+      border: 0.1rem solid rgba(#cfcfcf6f, $alpha: 0.6);
+
+      h3 {
+        margin-top: 0;
+      }
+    }
+
+    .transport {
+      @extend .value;
+      height: 5rem;
+    }
+  }
+
+  .reviewContainer {
+    display: flex;
+    gap: 2rem;
+    .review {
+      @extend .boxContent;
+
+      .reviewContent {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .couponContainer {
+    padding: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    gap: 1.5rem;
-    padding: 1.5rem;
 
-    .benefitContent {
-      display: flex;
-      align-items: center;
-      width: 25rem;
-      gap: 1rem;
+    .btn {
+      margin-top: 2rem;
     }
   }
 }

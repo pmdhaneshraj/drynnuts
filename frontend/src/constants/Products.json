@@ -1,0 +1,82 @@
+{
+  "name": "Product DB",
+  "data": [
+    {
+      "category": "nuts",
+      "products": [
+        {
+          "name": "Whole Cashew",
+          "description": "White premium whole cashew",
+          "imagePath": "",
+          "priceList": {
+            "100": 70,
+            "250": 150,
+            "500": 350,
+            "1000": 700
+          },
+          "rating": 5,
+          "reviews": []
+        },
+        {
+          "name": "Split Cashew",
+          "description": "White premium split cashew",
+          "imagePath": "",
+          "priceList": {
+            "100": 50,
+            "250": 120,
+            "500": 250,
+            "1000": 400
+          },
+          "rating": 5,
+          "reviews": []
+        },
+        {
+          "name": "Almond",
+          "description": "White premium split cashew",
+          "imagePath": "",
+          "priceList": {
+            "100": 50,
+            "250": 120,
+            "500": 250,
+            "1000": 400
+          },
+          "rating": 5,
+          "reviews": []
+        },
+        {
+          "name": "Roasted Almond",
+          "description": "White premium split cashew",
+          "imagePath": "",
+          "priceList": {
+            "100": 50,
+            "250": 120,
+            "500": 250,
+            "1000": 400
+          },
+          "rating": 5,
+          "reviews": []
+        }
+      ]
+    },
+    {
+      "category": "almond",
+      "products": [
+        {
+          "title": "Regular Almond",
+          "description": "Premium regular almond",
+          "image": "",
+          "priceList": [
+            {
+              "100": 70,
+              "250": 150,
+              "500": 350,
+              "1000": 700
+            }
+          ],
+          "rating": 5,
+          "reviews": []
+        }
+      ]
+    }
+  ]
+}

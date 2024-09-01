@@ -1,44 +1,82 @@
-import React from 'react'
+import React, { useMemo } from 'react'
+import { Button, Col, Rate, Row } from 'antd'
+import cx from 'classnames'
+import LocalShippingIcon from '@mui/icons-material/LocalShippingOutlined';
 
 import styles from './Home.module.scss'
-import FlashCard from '../../features/FlashCard'
-import { faHandPointer } from '@fortawesome/free-regular-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ProductCard from '../../components/ProductCard'
+import ProductList from '../../constants/Products.json'
+import HeroSection from '../../features/HeroSection'
+
+import ImgSvg from '../../assets/svg/5.svg'
 
 const Home = () => {
+
+  const products = useMemo(() => {
+    return ProductList.data[0].products
+  })
+
   return (
     <div className={styles.container}>
-      <section className={styles.heroSection}>
-        <FlashCard />
+      <HeroSection />
+      <section className={cx(styles.section, styles.valueProtion)}>
+        <div className={styles.value}>Special Care</div>
+        <div className={styles.value}>100% Quality</div>
+        <div className={styles.value}>24/7 Support</div>
       </section>
-      <section className={styles.proposition}>
-        <div className={styles.benefitContent}>
-          <FontAwesomeIcon icon={faHandPointer} />
-          Handpicked Quality
+      <section className={styles.section}>
+        <h1 className={styles.header}>Top Products</h1>
+        <Row className={styles.productContainer} gutter={[50, 50]}>
+          {products.map(item => 
+            <Col span={8} key={item.name}>
+              <ProductCard name={item.name} imagePath={ImgSvg} rating={item.rating} />
+            </Col>)}
+        </Row>
+      </section>
+      <section className={styles.section}>
+        <div className={styles.header} style={{ textAlign: 'center'}}>
+          <LocalShippingIcon className={styles.localShippingIcon} fontSize='30' />
         </div>
-        <div className={styles.benefitContent}>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.2426 16.3137L6 12.071L7.41421 10.6568L10.2426 13.4853L15.8995 7.8284L17.3137 9.24262L10.2426 16.3137Z"
-              fill="currentColor"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21Z"
-              fill="currentColor"
-            />
-          </svg>
-          100% Natural & Organic
+        <div className={styles.valueProtion}>
+          <div className={styles.transport}>
+            <h3>Delivery Info</h3>
+            <span>Fast delivery within 3-5 working days</span>
+          </div>
+          <div className={styles.transport}>
+            <h3>Contact Us</h3>
+            <span>Reach us at +91 78458 58553 or email drynnuts@gmail.com.</span>
+          </div>
+          <div className={styles.transport}>
+            <h3>Payment Options</h3>
+            <span>We accept UPI, Visa, Master card and Paypal.</span>
+          </div>
         </div>
-        <div className={styles.benefitContent}>
-          Sustainably Sourced
+      </section>
+      <section className={styles.section}>
+        <h1 className={styles.header}>Here our awesome users!</h1>
+        <div className={styles.reviewContainer} gutter={[50, 50]}>
+          <div span={8} className={styles.review}>
+            <h1>Krishnachand N K</h1>
+            <Rate disabled value={5} />
+            <div className={styles.reviewContent}>Today I had a mixture of soaked dry nuts. the taste was ultimate and especially dates taste was yummy.<br /><br />Honest feedback from the heart.</div>
+          </div>
+          <div span={8} className={styles.review}>
+            <h1>Krishnachand N K</h1>
+            <Rate disabled value={5} />
+            <div className={styles.reviewContent}>Today I had a mixture of soaked dry nuts. the taste was ultimate and especially dates taste was yummy. Honest feedback from the heart.</div>
+          </div>
+          <div span={8} className={styles.review}>
+            <h1>Krishnachand N K</h1>
+            <Rate disabled value={5} />
+            <div className={styles.reviewContent}>Today I had a mixture of soaked dry nuts. the taste was ultimate and especially dates taste was yummy. Honest feedback from the heart.</div>
+          </div>
+        </div>
+      </section>
+      <section className={cx(styles.section)}>
+        <div className={styles.couponContainer}>
+          <h1 className={styles.header}>To keep healthy, eat tasty</h1>
+          <span className={styles.textCenter}>Enjoy delicious, guilt-free treats with our exclusive offers. Grab your coupon now for a flavorful journey with Trufru products!</span>
+          <Button className={styles.btn}>Get Coupon</Button>
         </div>
       </section>
     </div>
