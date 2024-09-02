@@ -65,12 +65,29 @@ const controls = {
   },
   createBulk: async (req, res) => {
     try {
-      const arr = req.body;
-      return res.json('Product created successfully!')
+      const docs = req.body;
+      await Product.insertMany(docs)
+      const data = await Product.find();
+      return res.json({
+        message: 'Product created successfully!',
+        data
+      })
     } catch (error) {
-      return res.json({ error })
+      return res.json({ error: error.message })
     }
   },
+  deleteAll: async (req, res) => {
+    try {
+      // await Product.deleteMany()
+      const data = await Product.find();
+      return res.json({
+        message: 'Product deleted successfully!',
+        data
+      })
+    } catch (error) {
+      return res.json({ error: error.message })
+    }
+  }
 }
 
 module.exports = controls;
