@@ -1,0 +1,294 @@
+{
+  "data": [
+    {
+      "name": "Whole Cashew",
+      "category": "nut",
+      "type": "cashew",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "description": "Premium white whole cashew",
+      "rating": 5
+    },
+    {
+      "name": "Split Cashew",
+      "category": "nut",
+      "type": "cashew",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Roasted Chilli Cashew",
+      "category": "nut",
+      "type": "cashew",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Roasted Pepper Cashew",
+      "category": "nut",
+      "type": "cashew",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Almond",
+      "category": "nut",
+      "type": "almond",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Jumbo Almond",
+      "category": "nut",
+      "type": "almond",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Salted Pistachios",
+      "category": "nut",
+      "type": "pistachios",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Pistachios (Unshelled)",
+      "category": "nut",
+      "type": "pistachios",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Walnut",
+      "category": "nut",
+      "type": "walnut",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Arabian Dates",
+      "category": "dates",
+      "type": "dates",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Black Dates",
+      "category": "dates",
+      "type": "dates",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Dry Amla",
+      "category": "dried fruit",
+      "type": "amla",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Dry Kiwi",
+      "category": "dried fruit",
+      "type": "kiwi",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Dry Cherry",
+      "category": "dried fruit",
+      "type": "cherry",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Fig",
+      "category": "dried fruit",
+      "type": "fig",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Jumbo Fig",
+      "category": "dried fruit",
+      "type": "fig",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    },
+    {
+      "name": "Dry Pineapple",
+      "category": "dried fruit",
+      "type": "pineapple",
+      "priceList": [
+        {
+          "weigth": 100,
+          "price": 70
+        },
+        {
+          "weight": 250,
+          "price": 100
+        }
+      ],
+      "reviews": [],
+      "rating": 5
+    }
+  ]
+}
