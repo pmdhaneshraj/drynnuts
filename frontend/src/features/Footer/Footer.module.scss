@@ -1,54 +1,42 @@
 @import '../../styles/index.scss';
 
 .container {
-  padding: 2rem;
-  height: 30rem;
+  padding: 2rem 5rem;
   background-color: #d6d6d6;
 
-  .icon {
-    cursor: pointer;
-    font-size: 3rem;
-  }
+  .row1 {
+    height: 30rem;
 
-  .left {
-    height: 15rem;
-    border-right: 0.1rem solid #000;
-
-    .logo {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
+    .icon {
+      font-size: 5rem;
     }
-  }
 
-  .middle {
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-right: 0.1rem solid #000;
+    .left,
+    .right {
+      padding: 2rem;
+    }
 
     .link {
       text-decoration: none;
-      font-size: 1.5rem;
-      padding: 1rem .5rem;
-      margin-right: .5rem;
       color: #000;
     }
   }
 
-  .right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: .5rem;
-    font-size: large;
-  }
+  .row2 {
+    .left {
+      display: flex;
+      align-items: center;
+    }
 
-  .rights {
-    text-align: center;
-    font-size: 1.5rem;
-    background-color: #d6d6d6;
-    padding: 2rem;
+    .right {
+      display: flex;
+      justify-content: center;
+
+      .logo {
+        height: 10rem;
+        width: 30rem;
+        object-fit: cover;
+      }
+    }
   }
 }

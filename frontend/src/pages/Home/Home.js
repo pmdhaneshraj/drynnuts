@@ -13,7 +13,7 @@ import ImgSvg from '../../assets/svg/5.svg'
 const Home = () => {
 
   const products = useMemo(() => {
-    return ProductList.data[0].products
+    return ProductList.products
   })
 
   return (
@@ -27,14 +27,14 @@ const Home = () => {
       <section className={styles.section}>
         <h1 className={styles.header}>Top Products</h1>
         <Row className={styles.productContainer} gutter={[50, 50]}>
-          {products.map(item => 
+          {products.map(item =>
             <Col span={8} key={item.name}>
               <ProductCard name={item.name} imagePath={ImgSvg} rating={item.rating} />
             </Col>)}
         </Row>
       </section>
       <section className={styles.section}>
-        <div className={styles.header} style={{ textAlign: 'center'}}>
+        <div className={styles.header} style={{ textAlign: 'center' }}>
           <LocalShippingIcon className={styles.localShippingIcon} fontSize='30' />
         </div>
         <div className={styles.valueProtion}>
@@ -63,7 +63,7 @@ const Home = () => {
           <div span={8} className={styles.review}>
             <h1>Monisha</h1>
             <Rate disabled value={5} />
-            <div className={styles.reviewContent}>Packing was really good. And loved the taste of dry pineapple and amla <br /><br />Also the crispness of cashews is so good. All the dry fruits tasted better. <br/><br/>Will bug again for sure.</div>
+            <div className={styles.reviewContent}>Packing was really good. And loved the taste of dry pineapple and amla <br /><br />Also the crispness of cashews is so good. All the dry fruits tasted better. <br /><br />Will bug again for sure.</div>
           </div>
           <div span={8} className={styles.review}>
             <h1>Shree</h1>

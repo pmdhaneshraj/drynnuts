@@ -4,11 +4,11 @@ import { Rate } from 'antd';
 
 import styles from './ProductCard.module.scss';
 
-const ProductCard = ({ name, imagePath, rating}) => {
+const ProductCard = ({ name, imagePath, rating }) => {
   const navigate = useNavigate()
 
   const onClick = useCallback(() => {
-    navigate('/product')
+    navigate('/shop/product')
   })
 
   return (

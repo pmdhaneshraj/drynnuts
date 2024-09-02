@@ -2,11 +2,13 @@ import React, { useCallback } from 'react'
 import { Menu } from 'antd'
 
 import styles from './SideMenu.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const SideMenu = () => {
+  const navigate = useNavigate();
 
   const onSelect = useCallback((key) => {
-    console.log(key)
+    navigate('/shop')
   }, [])
 
   return (
