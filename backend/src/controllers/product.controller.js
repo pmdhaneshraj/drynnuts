@@ -5,62 +5,70 @@ const controls = {
   getProducts: async (req, res) => {
     try {
       const { category, type } = req.query;
-      const data = isEmpty(category) && isEmpty(type) ? await Product.find() : await Product.find({ category, type });
-      res.json(data)
+      const filter = Object.assign({},
+        category && { category },
+        type && { type }
+      )
+      const data = await Product.find(filter)
+      return res.json(data)
     } catch (error) {
-      res.json({ error })
+      return res.json({ error })
     }
   },
   createProduct: async (req, res) => {
     try {
-      const { name, type, category, url, price } = req.body;
+      const { name, type, category, url, priceList } = req.body;
       const product = new Product({
-        name, type, category, url, price
+        name, type, category, url, priceList
       })
       await product.save();
       const data = await Product.find();
-      res.json({
+      return res.json({
         message: 'Product created successfully!',
         responseBody: data
       })
     } catch (error) {
-      res.json({ error })
+      return res.json({ error })
     }
   },
   deleteProduct: async (req, res) => {
     try {
       const { id } = req.query;
-      await Product.findByIdAndDelete(id);
-      const data = await Product.find();
-      res.json({
-        message: 'Product deleted successfully!',
-        responseBody: data
-      })
+      if (id) {
+        await Product.findByIdAndDelete(id);
+        const data = await Product.find();
+        return res.json({
+          message: 'Product deleted successfully!',
+          responseBody: data
+        })
+      }
+      throw new Error('Product ID is required')
     } catch (error) {
-      res.json({ error })
+      return res.json({ error })
     }
   },
   updateProduct: async (req, res) => {
     try {
       const { id } = req.query;
-      await Product.findByIdAndUpdate(id, req.body);
-      const data = await Product.find();
-      res.json({
-        message: 'Product updated successfully!',
-        responseBody: data
-      })
-
+      if (id) {
+        await Product.findByIdAndUpdate(id, req.body);
+        const data = await Product.findById(id);
+        return res.json({
+          message: 'Product updated successfully!',
+          responseBody: data
+        })
+      }
+      throw new Error('Product ID is required')
     } catch (error) {
-      res.json({ error })
+      return res.json({ error: error.message })
     }
   },
   createBulk: async (req, res) => {
     try {
       const arr = req.body;
-      console.log({ body: req.body, arr })
-      res.json('Product created successfully!')
+      return res.json('Product created successfully!')
     } catch (error) {
-      res.json({ error })
+      return res.json({ error })
     }
   },
 }

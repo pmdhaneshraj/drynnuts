@@ -6,28 +6,31 @@ const productModal = mongoose.Schema({
     required: true,
     trim: true,
   },
-  type: {
-    type: String,
-    required: true,
-    trim: true
-  },
   category: {
     type: String,
     required: true,
     trim: true
   },
-  url: {
+  type: {
     type: String,
     required: true,
     trim: true
   },
-  price: {
-    type: Number,
+  priceList: {
+    type: Array,
     required: true,
     trim: true
   },
-  ratings: Number,
-  ratingComments: Array
+  description: {
+    type: String,
+    trim: true,
+  },
+  imageUrl: {
+    type: String,
+    trim: true
+  },
+  rating: Number,
+  reviews: Array
 }, {
   timestamps: true,
   versionKey: false,
