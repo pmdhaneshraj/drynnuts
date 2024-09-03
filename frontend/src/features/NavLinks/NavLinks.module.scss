@@ -14,4 +14,12 @@
     color: $primary-color;
     border-bottom: .2rem solid $primary-color;
   }
+
+  @include sm {
+    display: none;
+  }
+
+  @include md {
+    display: unset;
+  }
 }

@@ -1,14 +1,24 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
+import { Breadcrumb, Col, Row } from 'antd'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import styles from './Shop.module.scss'
-import SideMenu from '../../features/SideMenu'
-import { Breadcrumb, Col, Row } from 'antd'
-import { Outlet, useLocation, useNavigate } from 'react-router-dom'
-import ProductCard from '../../components/ProductCard'
 
-const Shop = () => {
+import SideMenu from '../../features/SideMenu'
+import Products from '../Products'
+
+const Shop = ({ action }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [activeKey, setActiveKey] = useState('all');
+
+  useEffect(() => {
+    if (activeKey !== 'all') {
+      action.fetchProducts({ type: activeKey })
+    } else {
+      action.fetchProducts()
+    }
+  }, [action, activeKey])
 
   const breadcrumbItems = useMemo(() => {
     return location.pathname.split('/')
@@ -24,7 +34,7 @@ const Shop = () => {
           className: styles.breadcrumbItems
         }
       })
-  }, [location])
+  }, [location, navigate])
 
   return (
     <div className={styles.container}>
@@ -38,10 +48,10 @@ const Shop = () => {
       ]} />
       <Row className={styles.row} gutter={[20]}>
         <Col span={5}>
-          <SideMenu />
+          <SideMenu activeKey={activeKey} setActiveKey={setActiveKey} />
         </Col>
         <Col span={19}>
-          <Outlet />
+          <Products />
         </Col>
       </Row>
     </div>

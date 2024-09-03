@@ -1,20 +1,19 @@
-import React, { useMemo } from 'react'
+import React, { useEffect } from 'react'
 import { Button, Col, Rate, Row } from 'antd'
 import cx from 'classnames'
 import LocalShippingIcon from '@mui/icons-material/LocalShippingOutlined';
 
 import styles from './Home.module.scss'
 import ProductCard from '../../components/ProductCard'
-import ProductList from '../../constants/Products.json'
 import HeroSection from '../../features/HeroSection'
 
 import ImgSvg from '../../assets/svg/5.svg'
 
-const Home = () => {
+const Home = ({ action, products }) => {
 
-  const products = useMemo(() => {
-    return ProductList.products
-  })
+  useEffect(() => {
+    action.fetchProducts()
+  }, [action])
 
   return (
     <div className={styles.container}>
@@ -27,7 +26,7 @@ const Home = () => {
       <section className={styles.section}>
         <h1 className={styles.header}>Top Products</h1>
         <Row className={styles.productContainer} gutter={[50, 50]}>
-          {products.map(item =>
+          {products?.slice(0, 6).map(item =>
             <Col span={8} key={item.name}>
               <ProductCard name={item.name} imagePath={ImgSvg} rating={item.rating} />
             </Col>)}

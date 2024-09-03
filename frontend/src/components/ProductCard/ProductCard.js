@@ -1,15 +1,17 @@
 import React, { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Rate } from 'antd';
+import Cookies from 'js-cookie'
 
 import styles from './ProductCard.module.scss';
 
-const ProductCard = ({ name, imagePath, rating }) => {
+const ProductCard = ({ name, id, imagePath, rating }) => {
   const navigate = useNavigate()
 
   const onClick = useCallback(() => {
-    navigate('/shop/product')
-  })
+    navigate(`/product`)
+    Cookies.set('productId', id)
+  }, [navigate, id])
 
   return (
     <div className={styles.container} onClick={onClick}>

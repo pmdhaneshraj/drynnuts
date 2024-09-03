@@ -1,0 +1,9 @@
+@import '../../styles/index.scss';
+
+.container {
+  padding-right: 2rem;
+
+  @include md {
+    display: none;
+  }
+}

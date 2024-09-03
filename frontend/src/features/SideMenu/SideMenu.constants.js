@@ -1,5 +1,9 @@
 export const SIDEMENU_ITEMS = [
   {
+    key: 'all',
+    label: 'All',
+  },
+  {
     key: 'nuts',
     label: 'Nuts',
     type: 'group',
@@ -28,11 +32,11 @@ export const SIDEMENU_ITEMS = [
     type: 'group',
     children: [
       {
-        key: 'arabian',
+        key: 'dates-brown',
         label: 'Arabian Dates',
       },
       {
-        key: 'blackDates',
+        key: 'dates-black',
         label: 'Dates (Black)'
       }
     ]
@@ -43,19 +47,19 @@ export const SIDEMENU_ITEMS = [
     type: 'group',
     children: [
       {
-        key: 'pumpkin',
+        key: 'seed-pumpkin',
         label: 'Pumpkin Seeds'
       },
       {
-        key: 'flax',
+        key: 'seed-flax',
         label: 'Flax Seeds'
       },
       {
-        key: 'sunflower',
+        key: 'seed-sunflower',
         label: 'Sunflower Seeds'
       },
       {
-        key: 'cia',
+        key: 'seed-cia',
         label: 'Cia Seeds'
       },
     ]

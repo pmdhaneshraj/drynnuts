@@ -1,1 +1,1 @@
-export { default } from './ProductPreview'
+export { default } from './ProductPreview.container'

@@ -5,7 +5,6 @@ import Home from "../pages/Home";
 import Shop from "../pages/Shop";
 import ProductPreview from "../pages/ProductPreview";
 import PageNotFound from "../pages/ErrorPage/404";
-import Products from "../pages/Products";
 
 const Router = createBrowserRouter([
   {
@@ -19,16 +18,10 @@ const Router = createBrowserRouter([
       {
         path: "shop",
         element: <Shop />,
-        children: [
-          {
-            index: true,
-            element: <Products />
-          },
-          {
-            path: "product",
-            element: <ProductPreview />,
-          },
-        ]
+      },
+      {
+        path: "product",
+        element: <ProductPreview />,
       },
       {
         path: "*",

@@ -1,14 +1,22 @@
-import React from 'react'
-import { Breadcrumb, Col, Form, Row, Select } from 'antd'
+import React, { useEffect } from 'react'
+import { Col, Row, Select } from 'antd'
+import Cookies from 'js-cookie'
 import { useNavigate } from 'react-router-dom'
 
 import styles from './ProductPreview.module.scss'
-import ProductList from '../../constants/Products.json'
 import ImgSvg from '../../assets/svg/5.svg'
 
-const ProductPreview = ({ imagePath }) => {
-  const { name, description, image, priceList, rating, reviews } = ProductList.products[0];
+const ProductPreview = ({ action, product }) => {
+  const id = Cookies.get('productId');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (id) {
+      action.fetchProductsById({ id })
+    } else {
+      navigate('/shop')
+    }
+  }, [action, id, navigate])
 
   return (
     <Row className={styles.container}>
@@ -16,12 +24,12 @@ const ProductPreview = ({ imagePath }) => {
         <img className={styles.image} src={ImgSvg} alt='ProductImg' />
       </Col>
       <Col span={12} className={styles.productContainer}>
-        <h1>{name}</h1>
+        <h1>{product?.name}</h1>
         <Select
           className={styles.select}
-          options={Object.keys(priceList).map(item => ({
-            label: item,
-            value: item,
+          options={product?.priceList?.map(item => ({
+            label: item.weight,
+            value: item.weight,
           }))}
         />
       </Col>

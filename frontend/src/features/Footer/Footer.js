@@ -4,7 +4,6 @@ import { Instagram, WhatsApp } from '@mui/icons-material';
 
 import styles from './Footer.module.scss';
 import logo from '../../assets/svg/logo.svg'
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (

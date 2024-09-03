@@ -24,4 +24,12 @@
       object-fit: cover;
     }
   }
+
+  @include sm {
+    justify-content: space-between;
+  }
+
+  @include md {
+    justify-content: unset;
+  }
 }
