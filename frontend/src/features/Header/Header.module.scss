@@ -25,6 +25,10 @@
     }
   }
 
+  .cartIcon {
+    cursor: pointer;
+  }
+
   @include sm {
     justify-content: space-between;
   }

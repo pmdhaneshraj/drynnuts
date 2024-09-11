@@ -5,7 +5,7 @@ import { Col, Row } from 'antd'
 import ProductCard from '../../components/ProductCard'
 import ImgSvg from '../../assets/svg/5.svg'
 
-const Products = ({ products }) => {
+const Products = ({ products = [] }) => {
   return (
     <Row className={styles.container} gutter={[30, 30]}>
       {products?.map(item =>

@@ -4,6 +4,10 @@
   .header {
     font-size: 3rem;
     text-align: center;
+
+    .icon {
+      color: $primary-color;
+    }
   }
 
   .boxContent {
@@ -19,19 +23,19 @@
     background-color: #d6d6d6;
   }
 
-  .textCenter {
-    text-align: center;
+  .topProductHeader {
+    margin-top: 0;
   }
 
-  .localShippingIcon {
-    color: $primary-color
+  .transportHeader {
+    margin-bottom: 1.5rem;
   }
 
   .valueProtion {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    height: 15rem;
+    align-items: flex-end;
+    height: 10rem;
 
     .value {
       width: 25%;
@@ -52,6 +56,7 @@
   .reviewContainer {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 4rem;
 
     .review {
       @extend .boxContent;
@@ -60,7 +65,9 @@
         margin-top: 0;
       }
 
-      width: 35rem;
+      & {
+        width: 35rem;
+      }
 
       .reviewContent {
         margin-top: 1rem;
@@ -77,13 +84,20 @@
 
     .couponHeader {
       @extend .header;
+      font-size: 4rem;
       color: $primary-color;
     }
 
-    .btn {
-      @include button;
-      margin-top: 2rem;
+    .couponDescription {
+      text-align: center;
+      font-size: 2rem
+    }
 
+    .btn {
+      margin-top: 3rem;
+      padding: 2rem;
+      font-size: 2rem;
+      @include button;
     }
   }
 

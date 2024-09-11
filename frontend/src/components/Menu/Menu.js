@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { MenuOutlined } from '@ant-design/icons'
 import { Button, Drawer } from 'antd'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './Menu.module.scss'
 
@@ -15,7 +16,7 @@ const Menu = () => {
   return (
     <div className={styles.container}>
       <Button onClick={showDrawer}>
-        <MenuOutlined />
+        <FontAwesomeIcon icon={faBars} />
       </Button>
       <Drawer title="Basic Drawer" onClose={onClose} open={open}>
         <p>Some contents...</p>

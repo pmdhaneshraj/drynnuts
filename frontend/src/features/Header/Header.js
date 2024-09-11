@@ -1,9 +1,11 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './Header.module.scss'
 import LogoSvg from '../../assets/svg/logo.svg'
-import NavLinks from '../NavLinks'
-import Menu from '../Menu'
+import NavLinks from '../../components/NavLinks';
+import Menu from '../../components/Menu/Menu';
 
 const Header = () => {
   return (
@@ -13,6 +15,7 @@ const Header = () => {
         {/* <span className={styles.title}>DRY 'N' NUTS</span> */}
       </div>
       <NavLinks />
+      <FontAwesomeIcon className={styles.cartIcon} icon={faCartShopping} size='xl' />
       <Menu />
     </div>
   )

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { Button, Col, Rate, Row } from 'antd'
 import cx from 'classnames'
-import LocalShippingIcon from '@mui/icons-material/LocalShippingOutlined';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTruck } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './Home.module.scss'
 import ProductCard from '../../components/ProductCard'
 import HeroSection from '../../features/HeroSection'
-
 import ImgSvg from '../../assets/svg/5.svg'
 
 const Home = ({ action, products }) => {
@@ -24,17 +24,17 @@ const Home = ({ action, products }) => {
         <div className={styles.value}>24/7 Support</div>
       </section>
       <section className={styles.section}>
-        <h1 className={styles.header}>Top Products</h1>
+        <h1 className={cx(styles.header, styles.topProductHeader)}>Top Products</h1>
         <Row className={styles.productContainer} gutter={[50, 50]}>
           {products?.slice(0, 6).map(item =>
             <Col span={8} key={item.name}>
-              <ProductCard name={item.name} imagePath={ImgSvg} rating={item.rating} />
+              <ProductCard {...item} imagePath={ImgSvg} />
             </Col>)}
         </Row>
       </section>
       <section className={styles.section}>
         <div className={styles.header} style={{ textAlign: 'center' }}>
-          <LocalShippingIcon className={styles.localShippingIcon} fontSize='30' />
+          <h1 className={styles.transportHeader}><FontAwesomeIcon className={styles.icon} icon={faTruck} /></h1>
         </div>
         <div className={styles.valueProtion}>
           <div className={styles.transport}>
@@ -74,7 +74,7 @@ const Home = ({ action, products }) => {
       <section className={cx(styles.section, styles.grayBg)}>
         <div className={styles.couponContainer}>
           <h1 className={styles.couponHeader}>To keep healthy, eat tasty</h1>
-          <span className={styles.textCenter}>Enjoy delicious, guilt-free treats with our exclusive offers. Grab your coupon now for a flavorful journey with Trufru products!</span>
+          <span className={styles.couponDescription}>Enjoy delicious, guilt-free treats with our exclusive offers. Grab your coupon now for a flavorful journey with our products!</span>
           <Button className={styles.btn}>Get Coupon</Button>
         </div>
       </section>

@@ -1,18 +1,24 @@
 @import '../../styles/index.scss';
 
-.heroSection {
+.container {
   position: relative;
+  height: 50rem;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  .image {
-    height: 50rem;
+  .imageContent {
+    position: absolute;
+    height: 100%;
     width: 100%;
-    object-fit: cover;
-    filter: brightness(50%);
-    z-index: -1;
+
+    .image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      filter: brightness(50%);
+    }
   }
 
   .heroContent {

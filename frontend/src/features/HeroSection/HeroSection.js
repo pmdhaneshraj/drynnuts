@@ -10,8 +10,10 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className={styles.heroSection}>
-      <img className={styles.image} src={HeroImage} alt='hero-image' />
+    <section className={styles.container}>
+      <div className={styles.imageContent}>
+        <img className={styles.image} src={HeroImage} alt='hero-image' />
+      </div>
       <div className={styles.heroContent}>
         <span className={styles.title}>Premium Dry Fruits & Nuts, Delivered Fresh to Your Door.</span>
         <h1 className={styles.description}>Savor the best quality, handpicked from the finest sources.</h1>

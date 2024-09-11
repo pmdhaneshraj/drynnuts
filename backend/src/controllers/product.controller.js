@@ -35,7 +35,7 @@ const controls = {
   createAll: async (req, res) => {
     try {
       const docs = req.body;
-      // await Product.insertMany(docs)  // for precaution
+      await Product.insertMany(docs)  // for precaution
       const data = await Product.find();
       return res.json({
         message: 'Product created successfully!',
@@ -53,6 +53,25 @@ const controls = {
       }
       await Product.findByIdAndUpdate(id, req.body);
       const data = await Product.findById(id);
+      return res.json({
+        message: 'Product updated successfully!',
+        responseBody: data
+      })
+    } catch (error) {
+      return res.json({ error: error.message })
+    }
+  },
+  updateAll: async (req, res) => {
+    try {
+      const products = req.body;
+      products.forEach(async product => {
+        const id = product.id;
+        if (!id) {
+          throw new Error('Product ID is required')
+        }
+        await Product.findByIdAndUpdate(id, product);
+      });
+      const data = await Product.find()
       return res.json({
         message: 'Product updated successfully!',
         responseBody: data
@@ -79,7 +98,7 @@ const controls = {
   },
   deleteAll: async (req, res) => {
     try {
-      // await Product.deleteMany() // For precautions
+      await Product.deleteMany() // For precautions
       const data = await Product.find();
       return res.json({
         message: 'Product deleted successfully!',

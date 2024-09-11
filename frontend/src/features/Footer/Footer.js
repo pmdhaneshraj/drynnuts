@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Col } from 'antd'
-import { Instagram, WhatsApp } from '@mui/icons-material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 import styles from './Footer.module.scss';
 import logo from '../../assets/svg/logo.svg'
@@ -10,8 +11,8 @@ const Footer = () => {
     <div className={styles.container}>
       <Row className={styles.row1}>
         <Col span={8} className={styles.left}>
-          <Instagram className={styles.icon} />
-          <WhatsApp className={styles.icon} />
+          <FontAwesomeIcon className={styles.icon} icon={faInstagram} />
+          <FontAwesomeIcon className={styles.icon} icon={faWhatsapp} />
         </Col>
         <Col span={16} className={styles.right}>
           <Row>

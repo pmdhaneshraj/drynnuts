@@ -59,8 +59,8 @@ export const SIDEMENU_ITEMS = [
         label: 'Sunflower Seeds'
       },
       {
-        key: 'seed-cia',
-        label: 'Cia Seeds'
+        key: 'seed-chia',
+        label: 'Chia Seeds'
       },
     ]
   },
