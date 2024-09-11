@@ -5,6 +5,7 @@
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-bottom: 0.1rem solid $border-color;
   position: absolute;
 
@@ -27,13 +28,5 @@
 
   .cartIcon {
     cursor: pointer;
-  }
-
-  @include sm {
-    justify-content: space-between;
-  }
-
-  @include md {
-    justify-content: unset;
   }
 }
