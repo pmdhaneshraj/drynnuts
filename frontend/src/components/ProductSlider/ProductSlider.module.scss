@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    font-size: large;
+    height: 5rem;
+    width: 3rem;
+  }
+
+
+  .productContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3rem;
+    overflow: hidden;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    margin: 2rem;
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    & {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+  }
+}

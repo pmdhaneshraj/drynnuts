@@ -4,6 +4,7 @@ import { fetchProducts, fetchProductsById } from "./Products.action";
 const initialState = {
   loading: false,
   productList: [],
+  filteredProducts: [],
   product: {},
   message: ''
 }

@@ -1,23 +1,73 @@
-.container {
-  margin: 2rem 0;
-  height: 50rem;
-  width: 100%;
+@import '../../styles/index.scss';
 
-  .select {
-    width: 10rem;
+.container {
+  padding: 2rem;
+
+  .breadcrumbItems {
+    cursor: pointer;
   }
 
-  .imageContainer {
-    padding: 2rem;
+  .section {
+    padding: 2rem 0;
 
-    .image {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
+  }
+
+  .row {
+    .grid {
+      display: grid;
+      grid-template-columns: 10rem 1fr;
+      margin: 3rem 0;
+    }
+
+    .price .value {
+      font-size: 5rem;
+    }
+
+    .quantity .value {
+      width: 7rem;
+    }
+
+    .title {
+      font-size: 3rem;
+    }
+
+    .imageContainer {
+      height: 45rem;
+      padding: 3rem;
+
+      .image {
+        height: 40rem;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .productContainer {
+      padding: 2rem;
+    }
+
+    .button {
+      margin-right: 1rem;
+      background-color: $cashew-color;
+      color: #fff;
+      font-weight: 700;
+      padding: 2rem 3rem;
+
+      &:hover {
+        @extend .button;
+        border-color: $cashew-color;
+      }
+    }
+
+    .checkoutBtn {
+      background-color: $almond-color;
+
+      &:hover {
+        @extend .checkoutBtn;
+        border-color: $almond-color;
+      }
     }
   }
 
-  .productContainer {
-    padding: 2rem;
-  }
+  .otherProuducts {}
 }
