@@ -9,8 +9,8 @@
   border-bottom: 0.1rem solid $border-color;
   position: absolute;
 
-  .content {
-    padding: 5rem 0;
+  .leftContent {
+    display: flex;
   }
 
   .logo {

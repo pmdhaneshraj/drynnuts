@@ -2,9 +2,9 @@ import { bindActionCreators } from "redux";
 import { createStructuredSelector } from "reselect";
 import { connect } from 'react-redux'
 
-import Checkout from "./Checkout";
-import { getCartItems } from "./Checkout.selector";
-import { setItemsToCart } from "./Checkout.slice";
+import Forms from "./Forms";
+import { setItemsToCart } from "../Checkout.slice";
+import { getCartItems } from "../Checkout.selector";
 
 const mapDispatchToProps = dispatch => ({
   action: bindActionCreators({
@@ -16,4 +16,4 @@ const mapStateToProps = () => createStructuredSelector({
   cartItems: getCartItems
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
+export default connect(mapStateToProps, mapDispatchToProps)(Forms)

@@ -10,11 +10,13 @@ import CartIcon from '../../components/CartIcon';
 const Header = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.logo}>
-        <img className={styles.img} src={LogoSvg} alt='logo' />
-        {/* <span className={styles.title}>DRY 'N' NUTS</span> */}
+      <div className={styles.leftContent}>
+        <div className={styles.logo}>
+          <img className={styles.img} src={LogoSvg} alt='logo' />
+          {/* <span className={styles.title}>DRY 'N' NUTS</span> */}
+        </div>
+        <NavLinks />
       </div>
-      <NavLinks />
       <Menu />
       <CartIcon />
     </div>

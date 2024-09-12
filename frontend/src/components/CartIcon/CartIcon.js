@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBagShopping, faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './CartIcon.module.scss';
 import { Badge } from 'antd';
 import { useSelector } from 'react-redux';
 import { getCartItems } from '../../pages/Checkout/Checkout.selector';
-import { set } from 'lodash';
 import { useNavigate } from 'react-router-dom';
 
 

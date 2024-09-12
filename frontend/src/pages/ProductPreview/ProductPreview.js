@@ -95,15 +95,12 @@ const ProductPreview = ({ action, product, products, cartItems }) => {
             <Radio.Group
               name='weight'
               className={styles.value}
-              defaultValue={100}
+              defaultValue={product?.priceList?.length !== 4 ? 100 : 500}
               buttonStyle="solid"
               onChange={onSelectWeight}
               button
             >
-              <Radio.Button value={100}>100g</Radio.Button>
-              <Radio.Button value={250}>250g</Radio.Button>
-              <Radio.Button value={500}>500g</Radio.Button>
-              <Radio.Button value={1000}>1000g</Radio.Button>
+              {product?.priceList?.map(item => <Radio.Button value={item.weight}>{item.weight}g</Radio.Button>)}
             </Radio.Group>
           </div>
           <div className={cx(styles.grid, styles.quantity)}>
@@ -126,11 +123,30 @@ const ProductPreview = ({ action, product, products, cartItems }) => {
         </Col>
       </Row>
       <section className={styles.section}>
-        <h1>Description</h1>
+        <h1 className={styles.title}>Description</h1>
+        <div className={styles.description}>
+          <p>Unsalted pistachios are a popular snack known for their rich flavor and numerous health benefits. These small, oval-shaped nuts are encased in a hard, beige shell that splits open when roasted. The inner nut has a distinctive green color and a slightly sweet, nutty taste.</p>
+          <h3>Characteristics:</h3>
+          <ul>
+            <li><strong>Appearance:</strong> Typically, unsalted pistachios are found in their shells, which are beige and slightly textured. The nut inside is greenish and has a smooth, somewhat creamy texture.</li>
+            <li><strong>Flavor:</strong> They have a mild, nutty flavor with a subtle sweetness. The absence of salt emphasizes their natural taste, which can be slightly buttery.</li>
+            <li><strong>Texture:</strong> The nut is firm yet tender, offering a satisfying crunch without being overly hard.</li>
+          </ul>
+          <h3>Health Benefits:</h3>
+          <ul>
+            <li><strong>Nutritional Value:</strong> They are a rich source of protein, fiber, and healthy fats, including monounsaturated and polyunsaturated fats.</li>
+            <li><strong>Heart Health:</strong> Their healthy fat content helps lower LDL cholesterol levels, promoting better heart health.</li>
+            <li><strong>Antioxidants:</strong> High in antioxidants such as lutein and zeaxanthin, which support eye health and protect cells from oxidative damage.</li>
+            <li><strong>Digestive Health:</strong> The fiber in pistachios aids digestion and promotes regular bowel movements.</li>
+            <li><strong>Blood Sugar Control:</strong> The balance of protein, fiber, and healthy fats helps stabilize blood sugar levels.</li>
+          </ul>
+          <h3>Usage:</h3>
+          <p>Unsalted pistachios can be enjoyed on their own as a snack, added to salads, yogurt, or oatmeal, or used in cooking and baking to provide a nutty flavor and added crunch. They’re a versatile ingredient that complements both sweet and savory dishes.</p>
+        </div>
         {product.description}
       </section>
       <section className={cx(styles.section, styles.otherProuducts)}>
-        <h1>Similar Products</h1>
+        <h1 className={styles.title}>Similar Products</h1>
         <ProductSlider products={products} />
       </section>
     </div >

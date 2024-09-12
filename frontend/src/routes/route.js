@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import Shop from "../pages/Shop";
 import ProductPreview from "../pages/ProductPreview";
 import PageNotFound from "../pages/ErrorPage/404";
+import Checkout from "../pages/Checkout";
 
 const Router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const Router = createBrowserRouter([
       {
         path: "product",
         element: <ProductPreview />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
       },
       {
         path: "*",

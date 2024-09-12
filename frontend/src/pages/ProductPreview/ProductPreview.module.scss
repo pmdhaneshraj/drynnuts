@@ -9,7 +9,15 @@
 
   .section {
     padding: 2rem 0;
+  }
 
+  .title {
+    font-size: 3rem;
+    margin-top: 0;
+  }
+
+  .description {
+    font-size: large;
   }
 
   .row {
@@ -25,10 +33,6 @@
 
     .quantity .value {
       width: 7rem;
-    }
-
-    .title {
-      font-size: 3rem;
     }
 
     .imageContainer {
