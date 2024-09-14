@@ -1,3 +1,5 @@
+@import '~styles';
+
 .container {
   padding: 2rem;
 
@@ -12,8 +14,4 @@
     gap: 4rem;
   }
 
-}
-
-.breadcrumbItems {
-  cursor: pointer;
 }

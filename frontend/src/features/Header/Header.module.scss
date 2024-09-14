@@ -1,4 +1,4 @@
-@import '../../styles/index.scss';
+@import '~styles';
 
 .container {
   height: 5rem;
@@ -11,19 +11,15 @@
 
   .leftContent {
     display: flex;
+    align-items: center;
   }
 
   .logo {
-    height: 3rem;
-    width: 15rem;
+    font-family: "Jacques Francois Shadow", serif;
+    font-size: 3rem;
+    text-shadow: 4px 4px 4px #aaa;
     margin: 0 1rem;
     cursor: pointer;
-
-    .img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
   }
 
   .cartIcon {
