@@ -11,7 +11,18 @@ const UserModal = mongoose.Schema({
     required: true,
     trim: true
   },
-  email: {
+  mobileOtp: Number,
+  address: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  pincode: {
+    type: Number,
+    required: true,
+    trim: true
+  },
+  landmark: {
     type: String,
     trim: true
   },
@@ -20,11 +31,20 @@ const UserModal = mongoose.Schema({
     enum: ['ADMIN', 'USER'],
     default: 'USER'
   },
-  mobileOtp: String,
   orders: {
     type: Array,
     trim: true
   },
-}, { versionKey: false })
+}, {
+  timestamps: true,
+  versionKey: false,
+  id: true,
+  toJSON: {
+    transform(doc, ret) {
+      ret.id = ret._id
+      delete ret._id
+    }
+  }
+})
 
 module.exports = mongoose.model('User', UserModal)

@@ -5,6 +5,7 @@ const cors = require('cors')
 const productRouter = require('./src/routes/product.router');
 const userRouter = require('./src/routes/user.router');
 const authRouter = require('./src/routes/auth.router');
+const orderRouter = require('./src/routes/order.router')
 require('dotenv').config();
 
 mongoose.connect(process.env.MONGO_DB_URI)
@@ -21,6 +22,7 @@ app.use(cors()) //TODO: add url for cors policy
 app.use('/product', productRouter);
 app.use('/user', userRouter)
 app.use('/auth', authRouter)
+app.use('/order', orderRouter)
 
 app.listen(PORT, () => {
   console.log(`Server up and running on ${PORT}`)

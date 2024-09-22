@@ -1,4 +1,4 @@
-import { Button, Col, Form, Input, Row, Table } from 'antd'
+import { Button, Form, Table } from 'antd'
 import React, { useCallback, useMemo, useState } from 'react'
 import { TABLE_COLUMNS } from '../Checkout.constants'
 
@@ -49,21 +49,40 @@ const Forms = ({ action, cartItems, current, setCurrent }) => {
       setCurrent(prev => prev + offset)
     } catch (error) {
     }
-  }, [form])
+  }, [form, setCurrent])
+
+  const onPlaceOrder = useCallback(() => {
+    action.placeOrder()
+  }, [action])
 
   return (
     <div className={styles.container}>
-      {current === 0 && <Table
-        className={styles.table}
-        columns={TABLE_COLUMNS({ onClick: onQuanityClick })}
-        dataSource={withPriceTotalData}
-      />}
-      {current === 1 && <AddressStep form={form} totalPrice={totalPrice} />}
-      {current === 2 && <Payment />}
-      <div className={styles.footer}>
-        <Button onClick={() => onStepClick(-1)}>Previous</Button>
-        <Button type='primary' onClick={() => onStepClick(1)}>Next</Button>
-      </div>
+      {current === 0 && <>
+        <Table
+          className={styles.table}
+          columns={TABLE_COLUMNS({ onClick: onQuanityClick })}
+          dataSource={withPriceTotalData}
+        />
+        <div className={styles.footer}>
+          <Button onClick={() => onStepClick(-1)}>Previous</Button>
+          <Button type='primary' onClick={() => onStepClick(1)}>Next</Button>
+        </div>
+      </>
+      }
+      {current === 1 && <>
+        <AddressStep form={form} totalPrice={totalPrice} />
+        <div className={styles.footer}>
+          <Button onClick={() => onStepClick(-1)}>Previous</Button>
+          <Button type='primary' onClick={() => onStepClick(1)}>Next</Button>
+        </div>
+      </>}
+      {current === 2 && <>
+        <Payment />
+        <div className={styles.footer}>
+          <Button onClick={() => onStepClick(-1)}>Previous</Button>
+          {/* <Button type='primary' onClick={() => onStepClick(1)}>Next</Button> */}
+        </div>
+      </>}
     </div>
   )
 }

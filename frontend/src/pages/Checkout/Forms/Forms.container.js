@@ -5,10 +5,12 @@ import { connect } from 'react-redux'
 import Forms from "./Forms";
 import { setItemsToCart } from "../Checkout.slice";
 import { getCartItems } from "../Checkout.selector";
+import { placeOrderApi } from "../Checkout.api";
 
 const mapDispatchToProps = dispatch => ({
   action: bindActionCreators({
-    setItemsToCart
+    setItemsToCart,
+    placeOrderApi
   }, dispatch)
 })
 
