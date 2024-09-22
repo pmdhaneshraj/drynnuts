@@ -4,26 +4,33 @@
   padding: 2rem 5rem;
   background-color: #d6d6d6;
 
-  .row1 {
-    height: 30rem;
+  .link {
+    text-decoration: none;
+    color: #000;
+  }
 
-    .icon {
-      font-size: 5rem;
-      margin-right: 1rem;
+  .platforms {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5rem;
+
+    .header {
+      color: $primary-color;
     }
 
-    .left,
-    .right {
-      padding: 2rem;
-    }
+    .platformContents {
 
-    .link {
-      text-decoration: none;
-      color: #000;
+      .icon {
+        font-size: 5rem;
+        margin-right: 2rem;
+      }
     }
   }
 
-  .row2 {
+  .footerBottom {
     .left {
       display: flex;
       align-items: center;
@@ -39,5 +46,9 @@
         object-fit: cover;
       }
     }
+  }
+
+  @include mobile {
+    padding: 3rem;
   }
 }
