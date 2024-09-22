@@ -14,6 +14,12 @@
     align-items: center;
   }
 
+  .rightContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .logo {
     font-family: "Bruno Ace SC", sans-serif;
     font-weight: 700;
@@ -26,5 +32,11 @@
 
   .cartIcon {
     cursor: pointer;
+  }
+
+  @include mobile {
+    .navLinks {
+      display: none;
+    }
   }
 }

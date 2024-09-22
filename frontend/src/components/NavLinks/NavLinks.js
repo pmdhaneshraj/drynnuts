@@ -4,7 +4,7 @@ import cx from 'classnames'
 
 import styles from './NavLinks.module.scss'
 
-const NavLinks = () => {
+const NavLinks = ({ className, onClose }) => {
   const location = useLocation();
   const [active, setActive] = useState(location.pathname);
 
@@ -13,7 +13,7 @@ const NavLinks = () => {
   }, [location])
 
   return (
-    <div className={styles.container}>
+    <div className={cx(styles.container, className)}>
       <Link className={cx(styles.link, active === '/' && styles.active)}>Home</Link>
       <Link className={cx(styles.link, (active === '/shop' || active === '/product') && styles.active)} to='/shop'>Shop</Link>
       <Link className={cx(styles.link, active === '/about' && styles.active)} to='/about'>About Us</Link>

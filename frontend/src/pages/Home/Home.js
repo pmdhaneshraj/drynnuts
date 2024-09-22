@@ -27,7 +27,7 @@ const Home = ({ action, products }) => {
         <h1 className={cx(styles.header, styles.topProductHeader)}>Top Products</h1>
         <Row className={styles.productContainer} gutter={[50, 50]}>
           {products?.slice(0, 6).map(item =>
-            <Col span={8} key={item.name}>
+            <Col className={styles.products} span={8} key={item.name}>
               <ProductCard {...item} imagePath={ImgSvg} />
             </Col>)}
         </Row>

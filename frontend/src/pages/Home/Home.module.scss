@@ -11,6 +11,7 @@
   }
 
   .boxContent {
+    width: 25%;
     padding: 2rem;
     border: 0.1rem solid rgba(#cfcfcf6f, $alpha: 0.6);
   }
@@ -38,9 +39,7 @@
     height: 10rem;
 
     .value {
-      width: 25%;
-      padding: 2rem;
-      border: 0.1rem solid rgba(#cfcfcf6f, $alpha: 0.6);
+      @extend .boxContent;
 
       h3 {
         margin-top: 0;
@@ -63,10 +62,6 @@
 
       h1 {
         margin-top: 0;
-      }
-
-      & {
-        width: 35rem;
       }
 
       .reviewContent {
@@ -102,9 +97,43 @@
   }
 
 
-  @include sm {
-    .container {
-      overflow: hidden;
+  @include mobile {
+    .section {
+      padding: 3rem;
+    }
+
+    .valueProtion {
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      height: auto;
+      gap: 1.5rem;
+
+      .value {
+        width: auto;
+      }
+    }
+
+    .productContainer {
+      justify-content: center;
+
+      .products {
+        max-width: 100%;
+        flex: auto;
+      }
+    }
+
+    .reviewContainer {
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .review {
+        width: auto;
+      }
+    }
+
+    .couponContainer {
+      padding: 2rem;
     }
   }
 }

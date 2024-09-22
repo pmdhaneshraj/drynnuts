@@ -16,10 +16,12 @@ const Header = () => {
         <div className={styles.logo}>
           <span className={styles.logo} onClick={() => navigate('/')}>D.N.N</span>
         </div>
-        <NavLinks />
+        <NavLinks className={styles.navLinks} />
       </div>
-      <Menu />
-      <CartIcon />
+      <div className={styles.rightContent}>
+        <CartIcon />
+        <Menu />
+      </div>
     </div>
   )
 }

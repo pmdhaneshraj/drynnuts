@@ -3,7 +3,14 @@
 .container {
   padding-right: 2rem;
 
-  @include md {
+  @include web {
     display: none;
+  }
+}
+
+.drawer {
+  .navLinks {
+    display: flex;
+    flex-direction: column;
   }
 }
