@@ -29,7 +29,7 @@ const Footer = () => {
                 return acc;
               }, [])
               .map(item =>
-                <Col span={12}><p key={item.key}><a className={styles.link} href='./shop'>{item.label}</a></p></Col>)
+                <Col span={12} key={item.key}><p><a className={styles.link} href='./shop'>{item.label}</a></p></Col>)
             )}
           </Row>
         </Col>
