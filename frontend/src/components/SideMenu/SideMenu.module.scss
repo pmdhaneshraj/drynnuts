@@ -1,0 +1,21 @@
+@import '~styles';
+
+.container {
+  padding-bottom: 2rem;
+
+  .select {
+    width: 100%;
+  }
+
+  @include mobile {
+    .menu {
+      display: none;
+    }
+  }
+
+  @include web {
+    .select {
+      display: none;
+    }
+  }
+}

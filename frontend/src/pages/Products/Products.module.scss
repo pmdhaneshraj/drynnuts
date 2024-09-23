@@ -1,0 +1,10 @@
+@import '~styles';
+
+.container {
+  @include mobile {
+    .col {
+      flex: auto;
+      max-width: 50%;
+    }
+  }
+}

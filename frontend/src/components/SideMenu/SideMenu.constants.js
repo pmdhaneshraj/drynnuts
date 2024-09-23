@@ -92,3 +92,90 @@ export const SIDEMENU_ITEMS = [
     ]
   }
 ]
+
+export const SIDEMENU_OPTIONS = [
+  {
+    label: 'All',
+    value: 'all'
+  },
+  {
+    label: 'Nuts',
+    options: [
+      {
+        label: 'Cashew',
+        value: 'cashew'
+      },
+      {
+        label: 'Almond',
+        value: 'almond'
+      },
+      {
+        value: 'pistachios',
+        label: 'Pistachios'
+      },
+      {
+        value: 'walnut',
+        label: 'Walnut'
+      },
+    ]
+  },
+  {
+    label: 'Dates',
+    options: [
+      {
+        value: 'dates-brown',
+        label: 'Arabian Dates',
+      },
+      {
+        value: 'dates-black',
+        label: 'Dates (Black)'
+      }
+    ]
+  },
+  {
+    label: 'Seeds',
+    options: [
+      {
+        value: 'seed-pumpkin',
+        label: 'Pumpkin Seeds'
+      },
+      {
+        value: 'seed-flax',
+        label: 'Flax Seeds'
+      },
+      {
+        value: 'seed-sunflower',
+        label: 'Sunflower Seeds'
+      },
+      {
+        value: 'seed-chia',
+        label: 'Chia Seeds'
+      },
+    ]
+  },
+  {
+    label: 'Dried Fruits',
+    options: [
+      {
+        value: 'pineapple',
+        label: 'Pineapple',
+      },
+      {
+        value: 'amla',
+        label: 'Amla',
+      },
+      {
+        value: 'cherry',
+        label: 'Cherry'
+      },
+      {
+        value: 'kiwi',
+        label: 'Kiwi'
+      },
+      {
+        value: 'fig',
+        label: 'Fig'
+      }
+    ]
+  }
+]

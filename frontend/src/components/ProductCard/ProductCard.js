@@ -4,8 +4,9 @@ import { Rate } from 'antd';
 import Cookies from 'js-cookie'
 
 import styles from './ProductCard.module.scss';
+import { getCurrencyFormat } from 'utils/utils';
 
-const ProductCard = ({ name, id, imagePath, rating }) => {
+const ProductCard = ({ name, id, imagePath, rating, priceList }) => {
   const navigate = useNavigate()
 
   const onClick = useCallback(() => {
@@ -20,7 +21,8 @@ const ProductCard = ({ name, id, imagePath, rating }) => {
       </div>
       <div className={styles.content}>
         <div className={styles.name} title={name}>{name}</div>
-        <div className={styles.price} title={rating}>Rating: {<Rate disabled value={rating} />}</div>
+        {/* <div className={styles.price} title={rating}>Rating: {<Rate disabled value={rating} />}</div> */}
+        <div className={styles.price}>From: <span className={styles.rate}>{getCurrencyFormat(priceList[0]?.price)} - {getCurrencyFormat(priceList[3]?.price)}</span></div>
       </div>
     </div>
   )

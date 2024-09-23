@@ -7,11 +7,16 @@
     padding: 2rem 0;
   }
 
-  .productContainer {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 4rem;
-  }
+  @include mobile {
 
+    .row {
+      flex-flow: column wrap;
+    }
+
+    .col1,
+    .col2 {
+      flex: auto;
+      max-width: 100%;
+    }
+  }
 }

@@ -12,12 +12,8 @@ const Shop = ({ action }) => {
   const [activeKey, setActiveKey] = useState('all');
 
   useEffect(() => {
-    if (activeKey !== 'all') {
-      action.fetchProducts({ type: activeKey })
-    } else {
-      action.fetchProducts()
-    }
-  }, [action, activeKey])
+    action.fetchProducts()
+  }, [action])
 
   return (
     <div className={styles.container}>
@@ -34,11 +30,11 @@ const Shop = ({ action }) => {
         }
       ]} />
       <Row className={styles.row} gutter={[20]}>
-        <Col span={5}>
+        <Col className={styles.col1} span={5}>
           <SideMenu activeKey={activeKey} setActiveKey={setActiveKey} />
         </Col>
-        <Col span={19}>
-          <Products />
+        <Col className={styles.col2} span={19}>
+          <Products activeKey={activeKey} />
         </Col>
       </Row>
     </div>

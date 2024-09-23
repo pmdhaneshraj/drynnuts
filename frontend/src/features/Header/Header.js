@@ -14,7 +14,7 @@ const Header = () => {
     <div className={styles.container}>
       <div className={styles.leftContent}>
         <div className={styles.logo}>
-          <span className={styles.logo} onClick={() => navigate('/')}>D.N.N</span>
+          <span className={styles.logo} onClick={() => navigate('/')}>DRY N NUTS</span>
         </div>
         <NavLinks className={styles.navLinks} />
       </div>
