@@ -5,10 +5,12 @@ import { connect } from 'react-redux'
 import Checkout from "./Checkout";
 import { getCartItems } from "./Checkout.selector";
 import { setItemsToCart } from "./Checkout.slice";
+import { placeOrder } from "./Checkout.action";
 
 const mapDispatchToProps = dispatch => ({
   action: bindActionCreators({
-    setItemsToCart
+    setItemsToCart,
+    placeOrder
   }, dispatch)
 })
 

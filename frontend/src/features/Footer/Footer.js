@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <div className={styles.container}>
       <div className={styles.platforms}>
-        <h1 className={styles.header}>Find us here!</h1>
+        <h1 className={styles.header}>Follow here!</h1>
         <div className={styles.platformContents}>
           <FontAwesomeIcon className={styles.icon} icon={faInstagram} />
           <FontAwesomeIcon className={styles.icon} icon={faWhatsapp} />

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { placeOrderApi } from "./Checkout.api";
 
-const placeOrder = createAsyncThunk('placeOrder', async (payload, thunkAPI) => {
+export const placeOrder = createAsyncThunk('placeOrder', async (payload, thunkAPI) => {
   try {
     const response = await placeOrderApi(payload);
   } catch (error) {

@@ -1,0 +1,32 @@
+@import '~styles';
+
+.container {
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+.drawer {
+  .btn {
+    @include button();
+    height: 4rem;
+    width: 16rem;
+  }
+
+  .cartItemsContainer {
+    height: calc(100% - 10rem);
+    overflow-y: auto;
+  }
+
+  .emptyCart {
+    text-align: center;
+  }
+
+  .footer {
+    text-align: center;
+  }
+
+  .total {
+    text-align: end;
+    padding-right: 2rem;
+  }
+}

@@ -28,7 +28,7 @@ const Menu = () => {
       <Button onClick={showDrawer}>
         <FontAwesomeIcon icon={faBars} />
       </Button>
-      <Drawer className={styles.drawer} onClose={onClose} open={open} width={200}>
+      <Drawer className={styles.drawer} placement='left' onClose={onClose} open={open} width={200}>
         <NavLinks className={styles.navLinks} onClose={onClose} />
       </Drawer>
     </div>

@@ -1,7 +1,7 @@
 @import '~styles';
 
 .container {
-  padding-right: 2rem;
+  padding: 2rem;
 
   @include web {
     display: none;

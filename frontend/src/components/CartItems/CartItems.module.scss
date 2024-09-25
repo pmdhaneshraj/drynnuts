@@ -1,0 +1,31 @@
+@import '~styles';
+
+.container {
+  @extend .preventSelect;
+  display: grid;
+  grid-template-columns: 10rem auto;
+  height: 10rem;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
+
+  .icon {
+    padding: 0 1.5rem;
+    cursor: pointer;
+  }
+
+  .productDetail {
+    position: relative;
+  }
+
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+  }
+
+  .countPrice {
+    display: flex;
+    justify-content: space-between;
+  }
+}

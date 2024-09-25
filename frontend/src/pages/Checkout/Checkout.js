@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { act, useState } from 'react'
 import styles from './Checkout.module.scss'
 import { Breadcrumb, Steps } from 'antd'
 import { useNavigate } from 'react-router-dom'
@@ -6,8 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCreditCard, faLocationDot, faRectangleList } from '@fortawesome/free-solid-svg-icons'
 
 import Forms from './Forms'
+import BillingAndShipping from './Forms'
 
-const Checkout = ({ action, cartItems }) => {
+const Checkout = ({ props }) => {
   const navigate = useNavigate();
   const [current, setCurrent] = useState(0)
 
@@ -30,27 +31,8 @@ const Checkout = ({ action, cartItems }) => {
           className: styles.breadcrumbItems
         }
       ]} />
-      <Steps
-        className={styles.steps}
-        current={current}
-        items={[
-          {
-            title: 'Order preview',
-            icon: <FontAwesomeIcon icon={faRectangleList} />
-          },
-          {
-            title: 'Address details',
-            icon: <FontAwesomeIcon icon={faLocationDot} />
-          },
-          {
-            title: 'Payment',
-            icon: <FontAwesomeIcon icon={faCreditCard} />
-          }
-        ]}
-      />
-      <div className={styles.stepsContent}>
-        <Forms current={current} setCurrent={setCurrent} />
-      </div>
+      <h1 className={styles.header}>Billing and Shipping</h1>
+      <BillingAndShipping {...props} />
     </div>
   )
 }
