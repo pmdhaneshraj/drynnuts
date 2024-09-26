@@ -86,7 +86,10 @@ const CartIcon = () => {
             </div>
             <h3 className={styles.total}>Total: {getCurrencyFormat(totalPrice)}</h3>
             <div className={styles.footer}>
-              <Button className={styles.btn}>Checkout</Button>
+              <Button className={styles.btn} onClick={() => {
+                navigate('/checkout')
+                setShowdrawer(false)
+              }}>Checkout</Button>
             </div>
           </>}
       </Drawer>

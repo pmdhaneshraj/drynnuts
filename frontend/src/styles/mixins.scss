@@ -1,5 +1,6 @@
 @mixin button($buttonBgColor: $primary-color, $buttonColor: #fff) {
   background-color: $buttonBgColor;
+  border-color: $buttonBgColor;
   color: $buttonColor;
   font-weight: 700;
 

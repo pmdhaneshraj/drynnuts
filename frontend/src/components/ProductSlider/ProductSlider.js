@@ -22,7 +22,10 @@ const ProductSlider = ({ products }) => {
     <div className={styles.container}>
       <FontAwesomeIcon className={styles.icon} icon={faChevronLeft} onClick={() => scroll(-1000)} />
       <Row ref={ref} className={styles.productContainer}>
-        {shuffle(products).slice(0, 11).map(item => <Col span={5}><ProductCard {...item} /></Col>)}
+        {shuffle(products).slice(0, 11).map(item => <Col key={item.name}>
+          <ProductCard key={item.name} {...item} />
+        </Col>
+        )}
       </Row>
       <FontAwesomeIcon className={styles.icon} icon={faChevronRight} onClick={() => scroll(1000)} />
     </div>

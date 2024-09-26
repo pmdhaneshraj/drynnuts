@@ -3,7 +3,7 @@ import { Button } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
 import styles from './HeroSection.module.scss'
-import HeroImage from '../../assets/AssortedDryFruits.svg'
+import HeroImage from '../../assets/svg/assortedDryFruits.svg'
 
 
 const HeroSection = () => {

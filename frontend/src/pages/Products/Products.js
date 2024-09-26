@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { Col, Row } from 'antd'
 
 import styles from './Products.module.scss'
-import { Col, Row } from 'antd'
 import ProductCard from '../../components/ProductCard'
-import ImgSvg from '../../assets/svg/5.svg'
+import ImgSvg from '../../assets/svg/cashew.svg'
 
 const Products = ({ products = [], activeKey }) => {
   const [selectedProducts, setSelectedProducts] = useState(products);

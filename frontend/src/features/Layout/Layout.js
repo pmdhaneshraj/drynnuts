@@ -8,10 +8,9 @@ import Footer from '../Footer'
 const Layout = () => {
   return (
     <div className={styles.container}>
+      <div id='scroll'></div>
       <Header />
-      <div className={styles.content}>
-        <Outlet />
-      </div>
+      <Outlet />
       <Footer />
     </div>
   )

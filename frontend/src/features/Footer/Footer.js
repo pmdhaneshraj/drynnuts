@@ -1,20 +1,32 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Row, Col } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { useNavigate } from 'react-router-dom';
 
 import styles from './Footer.module.scss';
 import logo from '../../assets/svg/logo.svg'
 import { SIDEMENU_ITEMS } from 'components/SideMenu/SideMenu.constants';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const onIconClick = useCallback((name) => {
+    if (name === 'insta') {
+      window.open('https://www.instagram.com/dry.n.nuts', '_blank')
+    }
+    if (name === 'wasap') {
+      window.open('https://wa.me/7845858553', '_blank')
+    }
+  })
+
   return (
     <div className={styles.container}>
       <div className={styles.platforms}>
         <h1 className={styles.header}>Follow here!</h1>
         <div className={styles.platformContents}>
-          <FontAwesomeIcon className={styles.icon} icon={faInstagram} />
-          <FontAwesomeIcon className={styles.icon} icon={faWhatsapp} />
+          <FontAwesomeIcon className={styles.icon} icon={faInstagram} onClick={() => onIconClick('insta')} />
+          <FontAwesomeIcon className={styles.icon} icon={faWhatsapp} onClick={() => onIconClick('wasap')} />
         </div>
       </div>
       <Row className={styles.footerTop}>

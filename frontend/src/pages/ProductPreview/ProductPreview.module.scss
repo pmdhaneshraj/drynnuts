@@ -24,6 +24,27 @@
     text-align: center;
   }
 
+  .radio {
+    :global(.ant-radio-button-wrapper) {
+      &:hover {
+        color: $cashew-color !important;
+      }
+    }
+
+    :global(.ant-radio-button-wrapper-checked) {
+      background: $cashew-color;
+      border-color: $cashew-color;
+      color: #000 !important;
+
+      &:hover,
+      &::before {
+        color: #000 !important;
+        background: $cashew-color;
+        border-color: $cashew-color;
+      }
+    }
+  }
+
   .row {
     .grid {
       display: grid;
@@ -41,7 +62,7 @@
 
     .imageContainer {
       height: 45rem;
-      padding: 3rem;
+      padding: 1rem;
 
       .image {
         height: 40rem;
@@ -54,16 +75,27 @@
       padding: 2rem;
     }
 
+    .quantity {
+      :global(.ant-select-selector):hover {
+        border-color: $cashew-color !important;
+      }
+    }
+
     .button {
       margin-right: 1rem;
       background-color: $cashew-color;
-      color: #fff;
+      color: #000;
       font-weight: 700;
       padding: 2rem 3rem;
+      width: 70%;
 
       &:hover {
         @extend .button;
         border-color: $cashew-color;
+      }
+
+      @include mobile {
+        width: 100%;
       }
     }
 
@@ -76,8 +108,6 @@
       }
     }
   }
-
-  .otherProuducts {}
 
   @include mobile {
     .row {

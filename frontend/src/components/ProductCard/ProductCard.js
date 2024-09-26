@@ -5,6 +5,7 @@ import Cookies from 'js-cookie'
 
 import styles from './ProductCard.module.scss';
 import { getCurrencyFormat } from 'utils/utils';
+import sampleImage from 'assets/svg/cashew.svg'
 
 const ProductCard = ({ name, id, imagePath, rating, priceList }) => {
   const navigate = useNavigate()
@@ -17,9 +18,9 @@ const ProductCard = ({ name, id, imagePath, rating, priceList }) => {
   return (
     <div className={styles.container} onClick={onClick}>
       <div className={styles.imgContent}>
-        <img className={styles.img} src={imagePath} alt='productImg' />
+        <img className={styles.image} src={sampleImage} alt='productImg' />
       </div>
-      <div className={styles.content}>
+      <div className={styles.bodyContent}>
         <div className={styles.name} title={name}>{name}</div>
         {/* <div className={styles.price} title={rating}>Rating: {<Rate disabled value={rating} />}</div> */}
         <div className={styles.price}>From: <span className={styles.rate}>{getCurrencyFormat(priceList[0]?.price)} - {getCurrencyFormat(priceList[3]?.price)}</span></div>

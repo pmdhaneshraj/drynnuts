@@ -7,7 +7,7 @@ import { faTruck } from '@fortawesome/free-solid-svg-icons'
 import styles from './Home.module.scss'
 import ProductCard from '../../components/ProductCard'
 import HeroSection from '../../features/HeroSection'
-import ImgSvg from '../../assets/svg/5.svg'
+import ImgSvg from '../../assets/svg/cashew.svg'
 
 const Home = ({ action, products }) => {
 

@@ -1,21 +1,23 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Breadcrumb, Button, Carousel, Col, Radio, Rate, Row, Select } from 'antd'
 import Cookies from 'js-cookie'
-import { useNavigate } from 'react-router-dom'
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom'
 import cx from 'classnames'
 
 import styles from './ProductPreview.module.scss'
-import ImgSvg from '../../assets/svg/5.svg'
+import ImgSvg from '../../assets/svg/cashew.svg'
 import ProductSlider from '../../components/ProductSlider'
 
 const ProductPreview = ({ action, product, products, cartItems }) => {
   const id = Cookies.get('productId');
   const navigate = useNavigate();
   const [price, setPrice] = useState(product?.priceList?.[0]?.price);
+  const [weight, setWeight] = useState(product?.priceList?.[0]?.weight);
   const [formValue, setFormValue] = useState({ weight: 100, quantity: 1 });
+  const routePath = useLocation();
 
   useEffect(() => {
-    document.getElementById('logo').scrollIntoView();
+    document.getElementById('scroll').scrollIntoView({ behavior: 'smooth' })
   }, [id])
 
   useEffect(() => {
@@ -25,12 +27,14 @@ const ProductPreview = ({ action, product, products, cartItems }) => {
 
   useEffect(() => {
     setPrice(product?.priceList?.[0]?.price)
+    setWeight(product?.priceList?.[0]?.weight)
   }, [product])
 
   const onSelectWeight = useCallback((e) => {
     const { name, value } = e.target;
     const productPrice = product?.priceList?.find(item => item.weight === value)?.price;
     setPrice(productPrice)
+    setWeight(value)
     setFormValue(prev => ({ ...prev, [name]: value }))
   }, [setPrice, product, setFormValue])
 
@@ -98,20 +102,19 @@ const ProductPreview = ({ action, product, products, cartItems }) => {
             <span className={styles.label}>Weight:</span>
             <Radio.Group
               name='weight'
-              className={styles.value}
-              defaultValue={product?.priceList?.length !== 4 ? 100 : 500}
+              className={cx(styles.value, styles.radio)}
+              value={weight}
               buttonStyle="solid"
               onChange={onSelectWeight}
-              button
             >
-              {product?.priceList?.map(item => <Radio.Button value={item.weight}>{item.weight}g</Radio.Button>)}
+              {product?.priceList?.map(item => <Radio.Button key={item.weight} value={item.weight}>{item.weight}g</Radio.Button>)}
             </Radio.Group>
           </div>
           <div className={cx(styles.grid, styles.quantity)}>
             <span className={styles.label}>Quantity: </span>
             <Select
               name='quantity'
-              className={styles.value}
+              className={cx(styles.value, styles.quantity)}
               defaultValue={1}
               onSelect={onSelectQuantity}
               options={Array(10).fill({}).map((item, index) => ({

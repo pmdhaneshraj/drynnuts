@@ -1,5 +1,8 @@
+@import '~styles';
+
 .container {
   height: 30rem;
+  width: 20rem;
   border: .1rem solid #cfcfcf6f;
   border-radius: 1.2rem;
   cursor: pointer;
@@ -7,17 +10,11 @@
 
 
   .imgContent {
-    height: 70%;
-
-    .img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      border-radius: 1rem;
-    }
+    height: 20rem;
+    width: 100%;
   }
 
-  .content {
+  .bodyContent {
     padding-top: 1rem;
 
     .name {

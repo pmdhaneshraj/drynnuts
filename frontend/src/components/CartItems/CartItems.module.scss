@@ -15,6 +15,7 @@
 
   .productDetail {
     position: relative;
+    padding-left: 2rem;
   }
 
   .close {
@@ -26,6 +27,6 @@
 
   .countPrice {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 }

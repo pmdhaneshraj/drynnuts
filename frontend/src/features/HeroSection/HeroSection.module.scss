@@ -41,7 +41,8 @@
     }
 
     .btn {
-      @include button;
+      @include button();
+      // border-color: transparent;
       padding: 2rem;
       font-size: 1.5rem;
     }
