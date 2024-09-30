@@ -9,8 +9,8 @@
   padding-right: 2rem;
 
   .icon {
-    padding: 0 1.5rem;
     cursor: pointer;
+    color: $primary-color;
   }
 
   .productDetail {
@@ -28,5 +28,14 @@
   .countPrice {
     display: flex;
     justify-content: space-around;
+  }
+
+  .count {
+    padding: 1rem;
+  }
+
+  .countSpan {
+    background-color: #c6c6c6;
+    border-radius: 1rem;
   }
 }

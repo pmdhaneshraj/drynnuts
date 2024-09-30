@@ -19,7 +19,7 @@ const Products = ({ products = [], activeKey }) => {
   return (
     <Row className={styles.container} gutter={[30, 30]}>
       {selectedProducts?.map(item =>
-        <Col className={styles.col} span={8} key={item.name}>
+        <Col className={styles.col} span={6} key={item.name}>
           <ProductCard {...item} imagePath={ImgSvg} />
         </Col>)}
     </Row>

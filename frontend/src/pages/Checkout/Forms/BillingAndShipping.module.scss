@@ -1,0 +1,30 @@
+@import '~styles';
+
+.container {
+  .orderContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+  }
+
+  .btn {
+    @include button();
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .cartItem {
+    padding-right: 0;
+
+    :global(.countPrice) {
+      justify-content: space-between;
+    }
+  }
+
+  @include mobile {
+    .col {
+      flex: auto;
+      max-width: 100%;
+    }
+  }
+}

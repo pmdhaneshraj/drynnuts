@@ -8,8 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './CartIcon.module.scss';
 import { getCartItems } from 'pages/Checkout/Checkout.selector';
-import CartItem from 'components/CartItems/CartItems';
 import { setItemsToCart } from 'pages/Checkout/Checkout.slice';
+import CartItem from 'components/CartItem';
 import emptyCart from 'assets/svg/emptyCart.svg'
 import { getCurrencyFormat } from 'utils/utils';
 
@@ -82,7 +82,7 @@ const CartIcon = () => {
           </div>
           : <>
             <div className={styles.cartItemsContainer}>
-              {cartItems.map(item => <CartItem {...item} onClick={onQuanityClick} />)}
+              {cartItems.map(item => <CartItem key={item.id + item.weight} {...item} onClick={onQuanityClick} />)}
             </div>
             <h3 className={styles.total}>Total: {getCurrencyFormat(totalPrice)}</h3>
             <div className={styles.footer}>

@@ -8,7 +8,7 @@ import { faCreditCard, faLocationDot, faRectangleList } from '@fortawesome/free-
 import Forms from './Forms'
 import BillingAndShipping from './Forms'
 
-const Checkout = ({ props }) => {
+const Checkout = ({ ...props }) => {
   const navigate = useNavigate();
   const [current, setCurrent] = useState(0)
 
@@ -31,7 +31,6 @@ const Checkout = ({ props }) => {
           className: styles.breadcrumbItems
         }
       ]} />
-      <h1 className={styles.header}>Billing and Shipping</h1>
       <BillingAndShipping {...props} />
     </div>
   )

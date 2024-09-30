@@ -3,7 +3,7 @@ import { createStructuredSelector } from "reselect";
 import { connect } from 'react-redux'
 
 import Checkout from "./Checkout";
-import { getCartItems } from "./Checkout.selector";
+import { getCartItems, getCartTotal } from "./Checkout.selector";
 import { setItemsToCart } from "./Checkout.slice";
 import { placeOrder } from "./Checkout.action";
 
@@ -15,7 +15,8 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = () => createStructuredSelector({
-  cartItems: getCartItems
+  cartItems: getCartItems,
+  subtotal: getCartTotal
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout)

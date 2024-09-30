@@ -7,6 +7,7 @@ import cx from 'classnames'
 import styles from './ProductPreview.module.scss'
 import ImgSvg from '../../assets/svg/cashew.svg'
 import ProductSlider from '../../components/ProductSlider'
+import { scrollToTop } from 'utils/utils'
 
 const ProductPreview = ({ action, product, products, cartItems }) => {
   const id = Cookies.get('productId');
@@ -17,7 +18,7 @@ const ProductPreview = ({ action, product, products, cartItems }) => {
   const routePath = useLocation();
 
   useEffect(() => {
-    document.getElementById('scroll').scrollIntoView({ behavior: 'smooth' })
+    scrollToTop()
   }, [id])
 
   useEffect(() => {

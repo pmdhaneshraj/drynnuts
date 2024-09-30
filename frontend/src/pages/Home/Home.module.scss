@@ -118,8 +118,10 @@
       justify-content: center;
 
       .products {
-        max-width: 50%;
+        display: flex;
+        justify-content: center;
         flex: auto;
+        max-width: 100%;
       }
     }
 
