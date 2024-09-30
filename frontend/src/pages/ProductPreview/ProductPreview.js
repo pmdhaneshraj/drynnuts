@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Breadcrumb, Button, Carousel, Col, Radio, Rate, Row, Select } from 'antd'
 import Cookies from 'js-cookie'
-import { useLoaderData, useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import cx from 'classnames'
 
 import styles from './ProductPreview.module.scss'
@@ -15,7 +15,6 @@ const ProductPreview = ({ action, product, products, cartItems }) => {
   const [price, setPrice] = useState(product?.priceList?.[0]?.price);
   const [weight, setWeight] = useState(product?.priceList?.[0]?.weight);
   const [formValue, setFormValue] = useState({ weight: 100, quantity: 1 });
-  const routePath = useLocation();
 
   useEffect(() => {
     scrollToTop()
@@ -40,7 +39,7 @@ const ProductPreview = ({ action, product, products, cartItems }) => {
   }, [setPrice, product, setFormValue])
 
   const onSelectQuantity = useCallback((value) => {
-    setFormValue(prev => ({ ...prev, ['quantity']: value }))
+    setFormValue(prev => ({ ...prev, quantity: value }))
   }, [setFormValue])
 
   const onClickAddToCart = useCallback(() => {

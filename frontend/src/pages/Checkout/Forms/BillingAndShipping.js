@@ -1,16 +1,20 @@
 import { Button, Col, Form, Input, Row, Select } from 'antd'
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import styles from './BillingAndShipping.module.scss'
 import { STATES } from './Forms.constants';
 import CartItem from 'components/CartItem';
 import { getCurrencyFormat, scrollToTop } from 'utils/utils';
-import { debounce, isEmpty } from 'lodash';
+import { debounce } from 'lodash';
 
 const BillingAndShipping = ({ action, cartItems = [], subtotal }) => {
   const [form] = Form.useForm();
   const [shipping, setShipping] = useState(30);
   const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    setTotalPrice(subtotal + shipping)
+  }, [subtotal, shipping])
 
   const onPlaceOrder = useCallback(async () => {
     try {
@@ -19,7 +23,7 @@ const BillingAndShipping = ({ action, cartItems = [], subtotal }) => {
       });
     } catch (error) {
     }
-  })
+  }, [form])
 
   const getShippingPrice = debounce((e) => {
     const { value } = e.target;
@@ -88,7 +92,7 @@ const BillingAndShipping = ({ action, cartItems = [], subtotal }) => {
         <hr />
         <div className={styles.orderContainer}>
           <span className={styles.label}>TOTAL :</span>
-          <span className={styles.value}>{getCurrencyFormat(subtotal + shipping)}</span>
+          <span className={styles.value}>{getCurrencyFormat(totalPrice)}</span>
         </div>
         <Button className={styles.btn} onClick={onPlaceOrder}>Place Order</Button>
       </Col>
