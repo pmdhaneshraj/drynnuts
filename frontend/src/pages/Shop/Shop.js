@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import { Breadcrumb, Col, Row } from 'antd'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import styles from './Shop.module.scss'
 
 import SideMenu from '../../components/SideMenu/SideMenu'
 import Products from '../Products'
+import { isEmpty } from 'lodash'
 
-const Shop = ({ action }) => {
+const Shop = ({ action, products }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [activeKey, setActiveKey] = useState('all');
 
   useEffect(() => {
-    action.fetchProducts()
-  }, [action])
+    if (isEmpty(products)) {
+      action.fetchProducts()
+    }
+  }, [action, products])
+
+  useEffect(() => {
+    if (location?.state) {
+      const stateValue = location.state
+      setActiveKey(stateValue.value)
+    }
+  }, [location])
 
   return (
     <div className={styles.container}>

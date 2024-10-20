@@ -2,11 +2,11 @@ import React, { useCallback } from 'react'
 import { Row, Col } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import styles from './Footer.module.scss';
 import logo from '../../assets/svg/logo.svg'
-import { SIDEMENU_ITEMS } from 'components/SideMenu/SideMenu.constants';
+import { PRODUCTS_LIST } from 'pages/Products/Products.constants';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -29,26 +29,23 @@ const Footer = () => {
           <FontAwesomeIcon className={styles.icon} icon={faWhatsapp} onClick={() => onIconClick('wasap')} />
         </div>
       </div>
-      <Row className={styles.footerTop}>
-        <Col span={16}>
-          <Row>
-            <Col span={12}><h3><a className={styles.link} href='./shop'>Products</a></h3></Col>
-            {(SIDEMENU_ITEMS
-              .reduce((acc, item) => {
-                if (item.hasOwnProperty('children')) {
-                  acc.push(...item?.children);
-                }
-                return acc;
-              }, [])
-              .map(item =>
-                <Col span={12} key={item.key}><p><a className={styles.link} href='./shop'>{item.label}</a></p></Col>)
-            )}
-          </Row>
-        </Col>
-        <Col span={8}>
-          <h3><a className={styles.link} href='./about'>About Us</a></h3>
-          <h3><a className={styles.link} href='./contact'>Contact Us</a></h3>
-        </Col>
+      <Row className={styles.footerTop} gutter={[50]}>
+        {PRODUCTS_LIST
+          .reduce((acc, item) => {
+            if (item.hasOwnProperty('children')) {
+              acc.push(item);
+            }
+            return acc;
+          }, [])
+          .map((item) =>
+            <Col span={6} key={item.label}>
+              <h3><Link to='/shop' state={{ isCategory: true, value: item.key }} className={styles.link} >{item.label}</Link></h3>
+              {item?.children.map(childItem =>
+                <p key={childItem.label}>
+                  <Link to='/shop' state={{ isCategory: false, value: childItem.key }} className={styles.link} >{childItem.label}</Link>
+                </p>)}
+            </Col>)
+        }
       </Row>
       <Row className={styles.footerBottom}>
         <Col span={12} className={styles.left}>

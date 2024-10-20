@@ -3,17 +3,19 @@ import { Breadcrumb, Button, Carousel, Col, Radio, Rate, Row, Select } from 'ant
 import Cookies from 'js-cookie'
 import { useNavigate } from 'react-router-dom'
 import cx from 'classnames'
+import { isEmpty } from 'lodash'
 
 import styles from './ProductPreview.module.scss'
 import ImgSvg from '../../assets/svg/cashew.svg'
 import ProductSlider from '../../components/ProductSlider'
 import { scrollToTop } from 'utils/utils'
 
-const ProductPreview = ({ action, product, products, cartItems }) => {
+const ProductPreview = ({ action, products, cartItems }) => {
   const id = Cookies.get('productId');
   const navigate = useNavigate();
-  const [price, setPrice] = useState(product?.priceList?.[0]?.price);
-  const [weight, setWeight] = useState(product?.priceList?.[0]?.weight);
+  const [product, setProduct] = useState({})
+  const [price, setPrice] = useState(0);
+  const [weight, setWeight] = useState(100);
   const [formValue, setFormValue] = useState({ weight: 100, quantity: 1 });
 
   useEffect(() => {
@@ -21,14 +23,21 @@ const ProductPreview = ({ action, product, products, cartItems }) => {
   }, [id])
 
   useEffect(() => {
-    id ? action.fetchProductsById({ id }) : navigate('/shop');
-    action.fetchProducts();
-  }, [action, id, navigate])
+    if (isEmpty(products)) {
+      action.fetchProducts();
+    }
+  }, [action, products])
 
   useEffect(() => {
-    setPrice(product?.priceList?.[0]?.price)
-    setWeight(product?.priceList?.[0]?.weight)
-  }, [product])
+    if (id) {
+      const selectedProduct = products.find(item => item.id === id);
+      setPrice(selectedProduct?.priceList?.[0]?.price)
+      setWeight(selectedProduct?.priceList?.[0]?.weight)
+      setProduct(selectedProduct)
+    } else {
+      navigate('/shop');
+    }
+  }, [id, navigate, products])
 
   const onSelectWeight = useCallback((e) => {
     const { name, value } = e.target;

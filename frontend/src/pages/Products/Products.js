@@ -10,7 +10,7 @@ const Products = ({ products = [], activeKey }) => {
 
   useEffect(() => {
     if (activeKey !== 'all') {
-      setSelectedProducts(products.filter(item => item.type === activeKey))
+      setSelectedProducts(products.filter(item => item.type === activeKey || item.category === activeKey))
     } else {
       setSelectedProducts(products)
     }
