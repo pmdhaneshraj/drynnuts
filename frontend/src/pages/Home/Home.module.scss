@@ -18,6 +18,10 @@
 
   .section {
     padding: 2rem 10rem;
+
+    @include mobile {
+      padding: 3rem;
+    }
   }
 
   .grayBg {
@@ -26,6 +30,29 @@
 
   .topProductHeader {
     margin-top: 0;
+  }
+
+  .productContainer {
+    @include mobile {
+      justify-content: center;
+
+      .products {
+        max-width: 100%;
+        padding: 0rem 1rem !important;
+      }
+    }
+
+    @include tab {
+      .products {
+        padding: 0rem 2rem !important;
+      }
+    }
+
+    @include lap {
+      .products {
+        padding: 0rem 2rem !important;
+      }
+    }
   }
 
   .transportHeader {
@@ -50,6 +77,22 @@
       @extend .value;
       height: 5rem;
     }
+
+    @include mobile {
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      height: auto;
+      gap: 1.5rem;
+
+      .value {
+        width: auto;
+      }
+    }
+
+    @include tab {
+      gap: 3rem
+    }
   }
 
   .reviewContainer {
@@ -67,6 +110,19 @@
       .reviewContent {
         margin-top: 1rem;
       }
+    }
+
+    @include mobile {
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .review {
+        width: auto;
+      }
+    }
+
+    @include tab {
+      gap: 3rem
     }
   }
 
@@ -94,47 +150,8 @@
       font-size: 1.5rem;
       @include button;
     }
-  }
 
-
-  @include mobile {
-    .section {
-      padding: 3rem;
-    }
-
-    .valueProtion {
-      flex-direction: column;
-      justify-content: center;
-      align-items: stretch;
-      height: auto;
-      gap: 1.5rem;
-
-      .value {
-        width: auto;
-      }
-    }
-
-    .productContainer {
-      justify-content: center;
-
-      .products {
-        display: flex;
-        justify-content: center;
-        flex: auto;
-        max-width: 100%;
-      }
-    }
-
-    .reviewContainer {
-      flex-direction: column;
-      gap: 1.5rem;
-
-      .review {
-        width: auto;
-      }
-    }
-
-    .couponContainer {
+    @include mobile {
       padding: 2rem;
     }
   }

@@ -3,7 +3,7 @@
 .container {
   padding: 2rem;
 
-  @include web {
+  @include lap {
     display: none;
   }
 }

@@ -25,7 +25,7 @@ const Home = ({ action, products }) => {
       </section>
       <section className={styles.section}>
         <h1 className={cx(styles.header, styles.topProductHeader)}>Top Products</h1>
-        <Row className={styles.productContainer} gutter={[50, 50]}>
+        <Row className={styles.productContainer} gutter={[120, 50]} wrap>
           {products?.slice(0, 6).map(item =>
             <Col className={styles.products} span={8} key={item.name}>
               <ProductCard {...item} imagePath={ImgSvg} />
@@ -62,7 +62,7 @@ const Home = ({ action, products }) => {
           <div span={8} className={styles.review}>
             <h1>Monisha</h1>
             <Rate disabled value={5} />
-            <div className={styles.reviewContent}>Packing was really good. And loved the taste of dry pineapple and amla <br /><br />Also the crispness of cashews is so good. All the dry fruits tasted better. <br /><br />Will bug again for sure.</div>
+            <div className={styles.reviewContent}>Packing was really good. And loved the taste of dry pineapple and amla <br /><br />Also the crispness of cashews is so good. All the dry fruits tasted better. <br /><br />Will buy again for sure.</div>
           </div>
           <div span={8} className={styles.review}>
             <h1>Shree</h1>

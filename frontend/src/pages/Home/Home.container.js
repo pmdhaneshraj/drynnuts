@@ -3,8 +3,8 @@ import { createStructuredSelector } from "reselect";
 import { connect } from 'react-redux'
 
 import Home from "./Home";
-import { fetchProducts } from "../Products/Products.action";
-import { getProducts } from "../Products/Products.selector";
+import { fetchProducts } from "../Shop/Shop.action";
+import { getProducts } from "pages/Shop/Shop.selector";
 
 
 const mapDispatchToProps = dispatch => ({

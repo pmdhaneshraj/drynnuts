@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { Breadcrumb, Col, Row } from 'antd'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { isEmpty } from 'lodash'
 
 import styles from './Shop.module.scss'
 
 import SideMenu from '../../components/SideMenu/SideMenu'
-import Products from '../Products'
-import { isEmpty } from 'lodash'
+import ProductCard from 'components/ProductCard'
+import ImgSvg from '../../assets/svg/cashew.svg'
 
 const Shop = ({ action, products }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [activeKey, setActiveKey] = useState('all');
+  const [selectedProducts, setSelectedProducts] = useState(products);
 
   useEffect(() => {
     if (isEmpty(products)) {
@@ -20,8 +22,18 @@ const Shop = ({ action, products }) => {
   }, [action, products])
 
   useEffect(() => {
+    if (activeKey !== 'all') {
+      setSelectedProducts(products.filter(item => item.type === activeKey || item.category === activeKey))
+    } else {
+      setSelectedProducts(products)
+    }
+  }, [activeKey, products])
+
+
+  useEffect(() => {
     if (location?.state) {
       const stateValue = location.state
+      console.log({ stateValue })
       setActiveKey(stateValue.value)
     }
   }, [location])
@@ -45,10 +57,12 @@ const Shop = ({ action, products }) => {
           <SideMenu activeKey={activeKey} setActiveKey={setActiveKey} />
         </Col>
         <Col className={styles.col2} span={19}>
-          <Products activeKey={activeKey} />
+          {selectedProducts?.map(item =>
+            <ProductCard key={item.id} {...item} imagePath={ImgSvg} />
+          )}
         </Col>
       </Row>
-    </div>
+    </div >
   )
 }
 

@@ -7,15 +7,22 @@
     padding: 2rem 0;
   }
 
-  @include mobile {
+  .col2 {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-row-gap: 2rem;
+    grid-column-gap: 2rem;
+  }
 
+  @include mobile {
     .row {
-      flex-flow: column wrap;
+      flex-direction: column;
     }
 
     .col1,
     .col2 {
       flex: auto;
+      grid-template-columns: repeat(2, auto);
       max-width: 100%;
     }
   }

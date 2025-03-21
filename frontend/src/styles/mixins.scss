@@ -12,21 +12,39 @@
   }
 }
 
-$screen-sm-min: 576px;
-$screen-md-min: 768px;
+$screen-sm-min: 375px;
+$screen-sm-max: 576px;
+$screen-md-max: 768px;
 $screen-lg-min: 992px;
 $screen-xl-min: 1200px;
+$screen-xxl-min: 1439px;
 
 @mixin mobile {
-  @media only screen and (max-width: $screen-sm-min) {
+  @media only screen and (max-width: $screen-sm-max) {
     @content;
   }
 }
 
-@mixin tab {}
+@mixin tab {
+  @media only screen and (max-width: $screen-md-max) {
+    @content;
+  }
+}
 
-@mixin web {
-  @media only screen and (min-width: $screen-sm-min) {
+@mixin lap {
+  @media only screen and (min-width: $screen-lg-min) {
+    @content;
+  }
+}
+
+@mixin lapL {
+  @media only screen and (min-width: $screen-xl-min) {
+    @content;
+  }
+}
+
+@mixin tv {
+  @media only screen and (min-width: $screen-xxl-min) {
     @content;
   }
 }

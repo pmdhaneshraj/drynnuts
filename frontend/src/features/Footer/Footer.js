@@ -2,15 +2,13 @@ import React, { useCallback } from 'react'
 import { Row, Col } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import styles from './Footer.module.scss';
 import logo from '../../assets/svg/logo.svg'
-import { PRODUCTS_LIST } from 'pages/Products/Products.constants';
+import { PRODUCTS_LIST } from 'pages/Shop/Shop.constants';
 
 const Footer = () => {
-  const navigate = useNavigate();
-
   const onIconClick = useCallback((name) => {
     if (name === 'insta') {
       window.open('https://www.instagram.com/dry.n.nuts', '_blank')
@@ -18,7 +16,7 @@ const Footer = () => {
     if (name === 'wasap') {
       window.open('https://wa.me/7845858553', '_blank')
     }
-  })
+  }, [])
 
   return (
     <div className={styles.container}>

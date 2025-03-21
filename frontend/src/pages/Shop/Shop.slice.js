@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchProducts, fetchProductsById } from "./Products.action";
+import { fetchProducts, fetchProductsById } from "./Shop.action";
 
 const initialState = {
   loading: false,
@@ -9,8 +9,8 @@ const initialState = {
   message: ''
 }
 
-const ProductSlice = createSlice({
-  name: 'Products',
+const ShopSlice = createSlice({
+  name: 'Shop',
   initialState,
   extraReducers: builder => {
     builder
@@ -39,4 +39,4 @@ const ProductSlice = createSlice({
   }
 })
 
-export default ProductSlice.reducer
+export default ShopSlice.reducer

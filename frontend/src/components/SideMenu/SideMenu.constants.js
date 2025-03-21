@@ -76,6 +76,6 @@ export const SIDEMENU_OPTIONS = [
   },
   {
     label: 'Dried Fruits',
-    value: 'dried fruits'
+    value: 'dried fruit'
   }
 ]
