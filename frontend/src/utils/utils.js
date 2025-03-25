@@ -1,5 +1,5 @@
 export const getCurrencyFormat = (value) => {
-  return Intl.NumberFormat({}, { style: 'currency', currency: 'INR' }).format(value)
+  return Intl.NumberFormat({}, { style: 'currency', currency: 'INR', minimumFractionDigits: 0 }).format(value)
 }
 
 export const scrollToTop = () => {

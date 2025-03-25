@@ -20,7 +20,7 @@
     padding: 2rem 10rem;
 
     @include mobile {
-      padding: 3rem;
+      padding: 2rem;
     }
   }
 
@@ -33,25 +33,13 @@
   }
 
   .productContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+
     @include mobile {
-      justify-content: center;
-
-      .products {
-        max-width: 100%;
-        padding: 0rem 1rem !important;
-      }
-    }
-
-    @include tab {
-      .products {
-        padding: 0rem 2rem !important;
-      }
-    }
-
-    @include lap {
-      .products {
-        padding: 0rem 2rem !important;
-      }
+      gap: 2rem;
     }
   }
 

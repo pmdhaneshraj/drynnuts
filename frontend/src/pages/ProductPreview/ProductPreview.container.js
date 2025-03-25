@@ -3,8 +3,8 @@ import { createStructuredSelector } from "reselect";
 import { connect } from 'react-redux'
 
 import ProductPreview from "./ProductPreview";
-import { fetchProducts, fetchProductsById } from "../Products/Products.action";
-import { getProduct, getProducts } from "../Products/Products.selector";
+import { fetchProducts, fetchProductsById } from "../Shop/Shop.action";
+import { getProduct, getProducts } from "../Shop/Shop.selector";
 import { setItemsToCart } from "../Checkout/Checkout.slice";
 import { getCartItems } from "../Checkout/Checkout.selector";
 

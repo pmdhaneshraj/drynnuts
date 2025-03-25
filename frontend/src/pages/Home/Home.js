@@ -8,11 +8,13 @@ import styles from './Home.module.scss'
 import ProductCard from '../../components/ProductCard'
 import HeroSection from '../../features/HeroSection'
 import ImgSvg from '../../assets/svg/cashew.svg'
+import { useMediaQuery } from 'hooks/useMediaQuery';
 
 const Home = ({ action, products }) => {
+  const isLapView = useMediaQuery('(min-width: 1250px) and (max-width: 1440px)')
 
   useEffect(() => {
-    action.fetchProducts()
+    action.fetchProducts();
   }, [action])
 
   return (
@@ -25,13 +27,11 @@ const Home = ({ action, products }) => {
       </section>
       <section className={styles.section}>
         <h1 className={cx(styles.header, styles.topProductHeader)}>Top Products</h1>
-        <Row className={styles.productContainer} gutter={[120, 50]} wrap>
-          {products?.slice(0, 6).map(item =>
-            <Col className={styles.products} span={8} key={item.name}>
-              <ProductCard {...item} imagePath={ImgSvg} />
-            </Col>)}
-        </Row>
-      </section>
+        <div className={styles.productContainer}>
+          {products?.slice(0, isLapView ? 8 : 6).map(item =>
+            <ProductCard key={item.name} {...item} imagePath={ImgSvg} />)}
+        </div>
+      </section >
       <section className={styles.section}>
         <div className={styles.header} style={{ textAlign: 'center' }}>
           <h1 className={styles.transportHeader}><FontAwesomeIcon className={styles.icon} icon={faTruck} /></h1>
@@ -78,7 +78,7 @@ const Home = ({ action, products }) => {
           <Button className={styles.btn}>Get Coupon</Button>
         </div>
       </section>
-    </div>
+    </div >
   )
 }
 
