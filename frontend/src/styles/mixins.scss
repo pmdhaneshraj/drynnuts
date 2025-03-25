@@ -12,39 +12,41 @@
   }
 }
 
-$screen-sm-min: 375px;
-$screen-sm-max: 576px;
-$screen-md-max: 768px;
-$screen-lg-min: 992px;
-$screen-xl-min: 1200px;
-$screen-xxl-min: 1439px;
+$screen-mobile-min: 375px;
+$screen-mobile-max: 576px;
+$screen-tab-max: 768px;
+$screen-lap-min: 992px;
+$screen-lap-max: 1440px;
+$screen-tv-max: 2560px;
 
 @mixin mobile {
-  @media only screen and (max-width: $screen-sm-max) {
+  @media only screen and (max-width: $screen-mobile-max) {
     @content;
   }
 }
 
 @mixin tab {
-  @media only screen and (max-width: $screen-md-max) {
+  @media only screen and (max-width: $screen-tab-max) {
     @content;
   }
 }
 
 @mixin lap {
-  @media only screen and (min-width: $screen-lg-min) {
+
+  /* @media only screen and (min-width: $screen-tab-max)/ and (max-width: $screen-lap-max) { */
+  @media only screen and (min-width: $screen-tab-max) and (max-width: $screen-lap-max) {
     @content;
   }
 }
 
 @mixin lapL {
-  @media only screen and (min-width: $screen-xl-min) {
+  @media only screen and (max-width: $screen-lap-max) {
     @content;
   }
 }
 
 @mixin tv {
-  @media only screen and (min-width: $screen-xxl-min) {
+  @media only screen and (max-width: $screen-tv-max) {
     @content;
   }
 }

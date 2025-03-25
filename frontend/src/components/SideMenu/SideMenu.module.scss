@@ -3,19 +3,21 @@
 .container {
   padding-bottom: 2rem;
 
-  .select {
-    width: 100%;
-  }
-
-  @include mobile {
-    .menu {
+  .menu {
+    @include mobile {
       display: none;
     }
   }
 
-  @include lap {
-    .select {
+  .select {
+    width: 100%;
+
+    @include tv {
       display: none;
+    }
+
+    @include mobile {
+      display: unset;
     }
   }
 }

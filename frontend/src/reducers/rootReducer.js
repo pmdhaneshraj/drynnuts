@@ -1,8 +1,11 @@
 import { combineReducers } from "redux";
-import ProductsSlice from "../pages/Products/Products.slice";
+
+import ShopSlice from "pages/Shop/Shop.slice";
 import CheckoutSlice from "../pages/Checkout/Checkout.slice";
+import TrackOrderSlice from "pages/TrackOrder/TrackOrder.slice";
 
 export const rootReducer = combineReducers({
-  product: ProductsSlice,
-  checkout: CheckoutSlice
+  shop: ShopSlice,
+  checkout: CheckoutSlice,
+  order: TrackOrderSlice
 })

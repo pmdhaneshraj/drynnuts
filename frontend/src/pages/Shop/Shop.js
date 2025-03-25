@@ -52,11 +52,11 @@ const Shop = ({ action, products }) => {
           className: styles.breadcrumbItems
         }
       ]} />
-      <Row className={styles.row} gutter={[20]}>
-        <Col className={styles.col1} span={5}>
+      <Row className={styles.shopRow} gutter={[20]}>
+        <Col className={styles.sideMenuColumn} span={5}>
           <SideMenu activeKey={activeKey} setActiveKey={setActiveKey} />
         </Col>
-        <Col className={styles.col2} span={19}>
+        <Col className={styles.productsColumn} span={19}>
           {selectedProducts?.map(item =>
             <ProductCard key={item.id} {...item} imagePath={ImgSvg} />
           )}

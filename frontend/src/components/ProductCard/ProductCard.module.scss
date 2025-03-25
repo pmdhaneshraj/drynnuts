@@ -5,26 +5,27 @@
   width: 20rem;
   border: .1rem solid #cfcfcf6f;
   border-radius: 1.2rem;
-  cursor: pointer;
   padding: 1.5rem;
+  cursor: pointer;
 
-
-  .imgContent {
-    height: 20rem;
-    width: 100%;
+  @include mobile {
+    height: 26.5rem;
+    width: 15rem;
   }
+
+  // .imgContent {
+  // }
 
   .bodyContent {
     padding-top: 1rem;
 
     .name {
+      height: auto;
       color: #ffbd59;
       font-size: 2rem;
       font-weight: bold;
       text-wrap: nowrap;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
+      white-space: wrap;
     }
 
     .price {

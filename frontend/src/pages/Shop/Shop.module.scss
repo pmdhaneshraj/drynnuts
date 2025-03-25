@@ -3,26 +3,25 @@
 .container {
   padding: 2rem;
 
-  .row {
-    padding: 2rem 0;
-  }
-
-  .col2 {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-row-gap: 2rem;
-    grid-column-gap: 2rem;
-  }
-
-  @include mobile {
-    .row {
+  .shopRow {
+    @include mobile {
       flex-direction: column;
     }
+  }
 
-    .col1,
-    .col2 {
-      flex: auto;
-      grid-template-columns: repeat(2, auto);
+  .sideMenuColumn {
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+
+  .productsColumn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    @include mobile {
       max-width: 100%;
     }
   }
