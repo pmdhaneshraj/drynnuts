@@ -6,6 +6,7 @@ import Shop from "../pages/Shop";
 import ProductPreview from "../pages/ProductPreview";
 import PageNotFound from "../pages/ErrorPage/404";
 import Checkout from "../pages/Checkout";
+import TrackOrder from "pages/TrackOrder";
 
 const Router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const Router = createBrowserRouter([
       {
         path: "checkout",
         element: <Checkout />,
+      },
+      {
+        path: 'track',
+        element: <TrackOrder />
       },
       {
         path: "*",

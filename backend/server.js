@@ -2,10 +2,12 @@ const express = require('express')
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors')
+
 const productRouter = require('./src/routes/product.router');
 const userRouter = require('./src/routes/user.router');
 const authRouter = require('./src/routes/auth.router');
 const orderRouter = require('./src/routes/order.router')
+
 require('dotenv').config();
 
 mongoose.connect(process.env.MONGO_DB_URI)

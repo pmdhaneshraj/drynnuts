@@ -1,59 +1,42 @@
-const { isEmpty } = require("lodash");
-const bcrypt = require('bcrypt')
-
 const User = require("../models/user.model");
 const { generateOTP, fast2sms } = require("../utils/otp.util");
 
 const controls = {
-  createUserWithEmailPassword: async (req, res) => {
-    const { firstname, lastname, password, email, mobileNumber } = req.body;
-    const saltRounds = process.env.SALT_ROUNDS || 10;
-
-    const user = await User.find({ $or: [{ email }, { mobileNumber }] });
-    if (isEmpty(user)) {
-      try {
-        bcrypt
-          .genSalt(Number(saltRounds))
-          .then(salt => {
-            return bcrypt.hash(password, salt)
-          })
-          .then(async hash => {
-            await User.create({
-              firstname, lastname, password: hash, email, mobileNumber
-            })
-            const userData = new User({
-              firstname, lastname, email, mobileNumber
-            })
-            await userData.save()
-            res.json({
-              message: 'User created successfully!',
-              responseBody: userData
-            })
-          })
-          .catch(err => console.error(err.message))
-      } catch (error) {
-        res.json(error)
+  getOtp: async (req, res) => {
+    try {
+      const { mobileNumber } = req.query;
+      const user = await User.findOne({ mobileNumber });
+      if (user) {
+        const otp = generateOTP(6);
+        user.mobileOtp = otp;
+        await user.save();
+        //TODO: send otp sms to user
+        return res.json({ data: 'OTP sent to mobile number' });
       }
-    } else {
-      res.status(403).json({
-        message: 'User already exist'
-      })
+
+      return res.json({ error: 'User not exists' })
+
+    } catch (error) {
+      return res.json({ error: true, data: error.message })
     }
   },
-  verifyUserWithPassword: async (req, res) => {
+  verifyOtp: async (req, res) => {
     try {
-      const { username, password } = req.body;
-      const user = await User.findOne({ username });
-      if (!isEmpty(user)) {
-        if (user.password === password) {
-          return res.json('User Logined in Successfully')
+      const { mobileNumber, otp } = req.body;
+      const user = await User.findOne({ mobileNumber });
+      if (user) {
+        if (user.mobileOtp === Number(otp)) {
+          user.mobileOtp = null;
+          await user.save()
+          return res.json({ error: false, data: 'OTP verified successfully' })
         }
-        throw new Error('Invalid Password')
-      } else {
-        throw new Error('Invalid Username')
+        return res.json({ error: true, data: 'Invalid OTP' })
       }
+
+      return res.json({ error: true, data: 'User not exist' })
+
     } catch (error) {
-      res.json(error.message)
+      return res.json({ error: error.message })
     }
   },
   createUserWithMobile: async (req, res) => {

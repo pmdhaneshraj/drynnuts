@@ -4,8 +4,12 @@ const { Schema } = require('mongoose');
 const orderModel = mongoose.Schema({
   userId: {
     type: Schema.ObjectId,
-    required: true,
+    // required: true,
     trim: true
+  },
+  orderId: {
+    type: String,
+    required: true
   },
   products: {
     type: Array,
@@ -13,6 +17,7 @@ const orderModel = mongoose.Schema({
     trim: true
   },
   totalPrice: Number,
+  date: String,
   status: {
     type: String,
     enum: ['PLACED', 'PROCESSING', 'SHIPPED', 'DELIVERED'],

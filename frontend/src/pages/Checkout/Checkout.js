@@ -1,12 +1,11 @@
 import React, { act, useState } from 'react'
-import styles from './Checkout.module.scss'
 import { Breadcrumb, Steps } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCreditCard, faLocationDot, faRectangleList } from '@fortawesome/free-solid-svg-icons'
 
-import Forms from './Forms'
-import BillingAndShipping from './Forms'
+import styles from './Checkout.module.scss'
+import BillingAndShipping from './Forms/BillingAndShipping'
 
 const Checkout = ({ ...props }) => {
   const navigate = useNavigate();

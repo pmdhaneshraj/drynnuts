@@ -16,6 +16,7 @@ const NavLinks = ({ className, onClose }) => {
     <div className={cx(styles.container, className)}>
       <Link className={cx(styles.link, active === '/' && styles.active)}>Home</Link>
       <Link className={cx(styles.link, (active === '/shop' || active === '/product') && styles.active)} to='/shop'>Shop</Link>
+      <Link className={cx(styles.link, active === '/track' && styles.active)} to='/track'>Track Order</Link>
       <Link className={cx(styles.link, active === '/about' && styles.active)} to='/about'>About Us</Link>
       <Link className={cx(styles.link, active === '/contact' && styles.active)} to='/contact'>Contact Us</Link>
     </div>

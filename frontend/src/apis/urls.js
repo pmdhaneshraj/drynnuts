@@ -1,5 +1,5 @@
 // Product
-export const FETCH_PRODUCTS_URL = '/product';
+export const PRODUCTS_URL = '/product';
 
 // Order
-export const CREATE_ORDER_URL = '/order';
+export const ORDER_URL = '/order';

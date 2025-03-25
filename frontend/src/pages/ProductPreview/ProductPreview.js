@@ -134,7 +134,7 @@ const ProductPreview = ({ action, products, cartItems }) => {
           </div>
           <div className={styles.buttons}>
             <Button className={styles.button} onClick={onClickAddToCart}>Add to Cart</Button>
-            {/* <Button className={cx(styles.button, styles.checkoutBtn)}>Checkout</Button> */}
+            <Button className={cx(styles.button, styles.checkoutBtn)} onClick={() => navigate('/checkout')}>Checkout</Button>
           </div>
         </Col>
       </Row>
