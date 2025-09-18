@@ -6,12 +6,11 @@ import cx from 'classnames'
 import { isEmpty } from 'lodash'
 
 import styles from './ProductPreview.module.scss'
-import ImgSvg from '../../assets/svg/cashew.svg'
 import ProductSlider from '../../components/ProductSlider'
 import { scrollToTop } from 'utils/utils'
 
 const ProductPreview = ({ action, products, cartItems }) => {
-  const id = Cookies.get('productId');
+  const productId = Cookies.get('productId');
   const navigate = useNavigate();
   const [product, setProduct] = useState({})
   const [price, setPrice] = useState(0);
@@ -20,7 +19,7 @@ const ProductPreview = ({ action, products, cartItems }) => {
 
   useEffect(() => {
     scrollToTop()
-  }, [id])
+  }, [productId])
 
   useEffect(() => {
     if (isEmpty(products)) {
@@ -29,19 +28,19 @@ const ProductPreview = ({ action, products, cartItems }) => {
   }, [action, products])
 
   useEffect(() => {
-    if (id) {
-      const selectedProduct = products.find(item => item.id === id);
-      setPrice(selectedProduct?.priceList?.[0]?.price)
-      setWeight(selectedProduct?.priceList?.[0]?.weight)
+    if (typeof productId === 'string' && !isEmpty(products)) {
+      const selectedProduct = products.find(item => item.productId === productId);
+      setPrice(selectedProduct?.weights?.[0]?.price)
+      setWeight(selectedProduct?.weights?.[0]?.weight)
       setProduct(selectedProduct)
     } else {
       navigate('/shop');
     }
-  }, [id, navigate, products])
+  }, [productId, navigate, products])
 
   const onSelectWeight = useCallback((e) => {
     const { name, value } = e.target;
-    const productPrice = product?.priceList?.find(item => item.weight === value)?.price;
+    const productPrice = product?.weights?.find(item => item.weight === value)?.price;
     setPrice(productPrice)
     setWeight(value)
     setFormValue(prev => ({ ...prev, [name]: value }))
@@ -52,19 +51,20 @@ const ProductPreview = ({ action, products, cartItems }) => {
   }, [setFormValue])
 
   const onClickAddToCart = useCallback(() => {
-    const { id, name, priceList } = product
-    const price = priceList?.find(item => item.weight === formValue.weight)?.price;
+    const { productId, weights } = product
+    const { sku, price } = weights?.find(item => item.weight === formValue.weight);
     const { weight, quantity: count } = formValue;
-    const isExist = cartItems.find(item => item.weight === weight && item.id === id)
+    const isExist = cartItems.find(item => item.sku === sku && item.productId === productId)
+    const productObj = { productId, sku, price, count: count }
     if (isExist) {
       const updatedCartItem = cartItems.map(item => {
-        if (item.id === id && item.weight === weight) {
+        if (item.productId === productId && item.sku === sku) {
           return { ...item, count: item.count + count }
         } return item
       })
       action.setItemsToCart(updatedCartItem)
     } else {
-      action.setItemsToCart([...cartItems, { id, name, weight, price, count: count }])
+      action.setItemsToCart([...cartItems, { ...productObj }])
     }
   }, [action, formValue, cartItems, product])
 
@@ -91,18 +91,17 @@ const ProductPreview = ({ action, products, cartItems }) => {
       <Row className={cx(styles.section, styles.row)}>
         <Col span={12} className={styles.imageContainer}>
           <Carousel autoplay>
-            <img className={styles.image} src={ImgSvg} alt='ProductImg' />
-            <img className={styles.image} src={ImgSvg} alt='ProductImg' />
-            <img className={styles.image} src={ImgSvg} alt='ProductImg' />
-            <img className={styles.image} src={ImgSvg} alt='ProductImg' />
+            {product?.images?.map((productImage, i) =>
+              <img className={styles.image} key={productImage + i} src={productImage} alt='ProductImg' />
+            )}
           </Carousel>
         </Col>
         <Col span={12} className={styles.productContainer}>
           <h1 className={styles.title}>{product?.name}</h1>
-          <div className={cx(styles.grid, styles.rating)}>
+          {/* <div className={cx(styles.grid, styles.rating)}>
             <span className={styles.label}>Ratings:</span>
             <Rate className={styles.value} value={product?.rating} disabled />
-          </div>
+          </div> */}
           <div className={cx(styles.grid, styles.price)}>
             <span className={styles.label}>Price:</span>
             <span className={styles.value}>{Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(price)}</span>
@@ -116,7 +115,7 @@ const ProductPreview = ({ action, products, cartItems }) => {
               buttonStyle="solid"
               onChange={onSelectWeight}
             >
-              {product?.priceList?.map(item => <Radio.Button key={item.weight} value={item.weight}>{item.weight}g</Radio.Button>)}
+              {product?.weights?.map(item => <Radio.Button key={item.weight} value={item.weight}>{item.weight}g</Radio.Button>)}
             </Radio.Group>
           </div>
           <div className={cx(styles.grid, styles.quantity)}>
@@ -141,7 +140,7 @@ const ProductPreview = ({ action, products, cartItems }) => {
       <section className={styles.section}>
         <h1 className={styles.title}>Description</h1>
         <div className={styles.description}>
-          {product.description}
+          {product?.description}
         </div>
       </section>
       <section className={cx(styles.section, styles.otherProuducts)}>

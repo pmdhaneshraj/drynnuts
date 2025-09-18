@@ -4,13 +4,16 @@
   @extend .preventSelect;
   display: grid;
   grid-template-columns: 10rem auto;
-  height: 10rem;
   padding-bottom: 2rem;
   padding-right: 2rem;
 
   .icon {
     cursor: pointer;
     color: $primary-color;
+  }
+
+  .image {
+    height: 100px;
   }
 
   .productDetail {

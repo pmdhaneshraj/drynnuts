@@ -7,7 +7,6 @@ import { faTruck } from '@fortawesome/free-solid-svg-icons'
 import styles from './Home.module.scss'
 import ProductCard from '../../components/ProductCard'
 import HeroSection from '../../features/HeroSection'
-import ImgSvg from '../../assets/svg/cashew.svg'
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 const Home = ({ action, products }) => {
@@ -16,6 +15,8 @@ const Home = ({ action, products }) => {
   useEffect(() => {
     action.fetchProducts();
   }, [action])
+
+  const colSpan = isLapView ? 8 : 6; // Adjust span for larger screens
 
   return (
     <div className={styles.container}>
@@ -28,8 +29,8 @@ const Home = ({ action, products }) => {
       <section className={styles.section}>
         <h1 className={cx(styles.header, styles.topProductHeader)}>Top Products</h1>
         <div className={styles.productContainer}>
-          {products?.slice(0, isLapView ? 8 : 6).map(item =>
-            <ProductCard key={item.name} {...item} imagePath={ImgSvg} />)}
+          {products?.slice(0, colSpan).map(item =>
+            <ProductCard key={item.name} {...item} />)}
         </div>
       </section >
       <section className={styles.section}>
@@ -52,7 +53,7 @@ const Home = ({ action, products }) => {
         </div>
       </section>
       <section className={styles.section}>
-        <h1 className={styles.header}>Here our awesome users!</h1>
+        <h1 className={styles.header}>Here our awesome customers!</h1>
         <div className={styles.reviewContainer} gutter={[50, 50]}>
           <div span={8} className={styles.review}>
             <h1>Krishnachand N K</h1>

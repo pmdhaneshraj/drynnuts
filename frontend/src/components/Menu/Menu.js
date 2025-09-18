@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Drawer } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import cx from 'classnames'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './Menu.module.scss'
 import NavLinks from 'components/NavLinks'
 import { useLocation } from 'react-router-dom'
 
-const Menu = () => {
+const Menu = ({ className }) => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
@@ -24,7 +25,7 @@ const Menu = () => {
   }, [location])
 
   return (
-    <div className={styles.container}>
+    <div className={cx(styles.container, className)}>
       <Button onClick={showDrawer}>
         <FontAwesomeIcon icon={faBars} />
       </Button>

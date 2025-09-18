@@ -3,26 +3,25 @@
 .container {
   padding: 2rem;
 
-  .shopRow {
-    @include mobile {
-      flex-direction: column;
-    }
-  }
-
-  .sideMenuColumn {
-    @include mobile {
-      max-width: 100%;
-    }
-  }
-
   .productsColumn {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2rem;
+  }
 
-    @include mobile {
+  @include mobile {
+    .shopRow {
+      flex-direction: column;
+    }
+
+    .sideMenuColumn {
       max-width: 100%;
+    }
+
+    .productsColumn {
+      max-width: 100%;
+      justify-content: center;
     }
   }
 }

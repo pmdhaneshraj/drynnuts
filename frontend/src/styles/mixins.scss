@@ -26,7 +26,7 @@ $screen-tv-max: 2560px;
 }
 
 @mixin tab {
-  @media only screen and (max-width: $screen-tab-max) {
+  @media only screen and (min-width: $screen-mobile-max) and (max-width: $screen-tab-max) {
     @content;
   }
 }

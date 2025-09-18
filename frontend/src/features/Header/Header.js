@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <div className={styles.container} id='header'>
-      <Menu />
+      <Menu className={styles.menu} />
       <div className={styles.leftContent}>
         <div className={styles.logo}>
           <span className={styles.logo} onClick={() => navigate('/')}>DRY N NUTS</span>

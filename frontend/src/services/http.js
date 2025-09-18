@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { isArray } from 'lodash'
 
-const BASE_URL = 'http://localhost:3001'
+const BASE_URL = 'http://drynnuts.com'
 const config = {}
 
 export class http {

@@ -2,10 +2,6 @@
 
 .container {
   padding: 2rem;
-
-  @include lap {
-    display: none;
-  }
 }
 
 .drawer {

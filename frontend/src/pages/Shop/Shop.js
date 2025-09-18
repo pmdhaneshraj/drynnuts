@@ -4,10 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { isEmpty } from 'lodash'
 
 import styles from './Shop.module.scss'
-
 import SideMenu from '../../components/SideMenu/SideMenu'
 import ProductCard from 'components/ProductCard'
-import ImgSvg from '../../assets/svg/cashew.svg'
 
 const Shop = ({ action, products }) => {
   const navigate = useNavigate();
@@ -29,11 +27,9 @@ const Shop = ({ action, products }) => {
     }
   }, [activeKey, products])
 
-
   useEffect(() => {
     if (location?.state) {
       const stateValue = location.state
-      console.log({ stateValue })
       setActiveKey(stateValue.value)
     }
   }, [location])
@@ -58,7 +54,7 @@ const Shop = ({ action, products }) => {
         </Col>
         <Col className={styles.productsColumn} span={19}>
           {selectedProducts?.map(item =>
-            <ProductCard key={item.id} {...item} imagePath={ImgSvg} />
+            <ProductCard key={item.productId} {...item} />
           )}
         </Col>
       </Row>

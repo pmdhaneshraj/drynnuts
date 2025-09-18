@@ -39,7 +39,17 @@
     cursor: pointer;
   }
 
+  @include tv {
+    .menu {
+      display: none;
+    }
+  }
+
   @include mobile {
+    .menu {
+      display: unset;
+    }
+
     .navLinks {
       display: none;
     }

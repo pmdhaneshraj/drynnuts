@@ -7,14 +7,17 @@
   border-radius: 1.2rem;
   padding: 1.5rem;
   cursor: pointer;
+  box-shadow: 0 4px 8px #808080;
+  background-color: #ffffff;
 
   @include mobile {
     height: 26.5rem;
     width: 15rem;
   }
 
-  // .imgContent {
-  // }
+  .imgContent {
+    height: 75%;
+  }
 
   .bodyContent {
     padding-top: 1rem;
@@ -25,7 +28,9 @@
       font-size: 2rem;
       font-weight: bold;
       text-wrap: nowrap;
-      white-space: wrap;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .price {

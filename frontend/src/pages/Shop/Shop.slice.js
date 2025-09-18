@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchProducts, fetchProductsById } from "./Shop.action";
+import { fetchProducts } from "./Shop.action";
 
 const initialState = {
   loading: false,
@@ -22,17 +22,6 @@ const ShopSlice = createSlice({
         state.productList = action.payload
       })
       .addCase(fetchProducts.rejected, (state, action) => {
-        state.loading = true
-        state.message = action.payload
-      })
-      .addCase(fetchProductsById.pending, (state, action) => {
-        state.loading = true
-      })
-      .addCase(fetchProductsById.fulfilled, (state, action) => {
-        state.loading = false;
-        state.product = action.payload
-      })
-      .addCase(fetchProductsById.rejected, (state, action) => {
         state.loading = true
         state.message = action.payload
       })
