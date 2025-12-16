@@ -7,6 +7,7 @@ import ProductPreview from "../pages/ProductPreview";
 import PageNotFound from "../pages/ErrorPage/404";
 import Checkout from "../pages/Checkout";
 import TrackOrder from "pages/TrackOrder";
+import AdminDashboard from 'pages/admin'
 
 const Router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const Router = createBrowserRouter([
       {
         path: "shop",
         element: <Shop />,
+      },
+      {
+        path: "adminDashboard",
+        element: <AdminDashboard />,
       },
       {
         path: "product",

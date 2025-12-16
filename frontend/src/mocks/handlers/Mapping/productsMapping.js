@@ -14,28 +14,28 @@ export const productsDb = [
       {
         "weight": 100,
         "price": 96,
-        "sku": "NUT-WC-100"
+        "sku": "NUT-WCAS-100"
       },
       {
         "weight": 250,
         "price": 240,
-        "sku": "NUT-WC-250"
+        "sku": "NUT-WCAS-250"
       },
       {
         "weight": 500,
         "price": 480,
-        "sku": "NUT-WC-500"
+        "sku": "NUT-WCAS-500"
       },
       {
         "weight": 1000,
         "price": 960,
-        "sku": "NUT-WC-1000"
+        "sku": "NUT-WCAS-1000"
       }
     ],
     "description": "Experience the rich, creamy texture of premium white whole cashews. Known for their delightful flavor and nutritional benefits, these cashews are perfect for snacking, baking, or adding to salads and stir-fries. High in healthy fats, protein, and essential minerals, they offer a satisfying crunch and are a great source of energy.",
     "rating": 5,
     "reviews": [],
-    "productId": "NUT-WholeCashew"
+    "productId": "NUT-WCAS"
   },
   {
     "name": "Jumbo Fig",
@@ -293,7 +293,7 @@ export const productsDb = [
     "productId": "NUT-Walnut"
   },
   {
-    "name": "Pistachios",
+    "name": "Unsalted Pistachios",
     "category": "nut",
     "type": "pistachios",
     "imagePath": "https://res.cloudinary.com/dgcstrtvz/image/upload/v1757415066/IMG_6446_t1s0aq.jpg",

@@ -16,7 +16,7 @@ const productModal = mongoose.Schema({
     required: true,
     trim: true
   },
-  priceList: {
+  weights: {
     type: Array,
     required: true,
     trim: true

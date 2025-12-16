@@ -11,7 +11,7 @@ const orderModel = mongoose.Schema({
     type: String,
     required: true
   },
-  products: {
+  orderItems: {
     type: Array,
     required: true,
     trim: true

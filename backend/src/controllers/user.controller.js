@@ -19,7 +19,7 @@ const controls = {
       const { id } = req.query;
       const user = await User.findById(id);
       if (!user) {
-        throw new ErrorStatus('User not found', 404)
+        throw new ErrorStatus(404, 'User not found')
       }
 
       return res.status(200).json({ data: user })
@@ -33,7 +33,7 @@ const controls = {
 
       const user = await User.find({ mobileNumber });
       if (!isEmpty(user)) {
-        throw new ErrorStatus('User already exists', 403)
+        throw new ErrorStatus(403, 'User already exists')
       }
       const newUser = await User({ name, mobileNumber, pincode, address, landmark })
       await newUser.save();

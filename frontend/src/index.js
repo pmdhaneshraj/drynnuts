@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { enableMocking } from './mocks/browser';
+import { enableMocking } from './mocks/worker';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

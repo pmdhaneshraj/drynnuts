@@ -1,6 +1,8 @@
+const { isEmpty } = require('lodash');
 const Product = require('../models/product.model');
+const ErrorStatus = require('../utils/error.util');
 
-const controls = {
+const productController = {
   getProducts: async (req, res) => {
     try {
       const { category, type, id } = req.query;
@@ -16,12 +18,12 @@ const controls = {
   },
   createProduct: async (req, res) => {
     try {
-      const { name, type, category, url, priceList } = req.body;
+      const { name, type, category, url, weights } = req.body;
       const isExist = await Product.find({ name })
       if (isExist) {
         throw new Error('Product already exists!')
       }
-      const product = new Product({ name, type, category, url, priceList })
+      const product = new Product({ name, type, category, url, weights })
       await product.save();
       const data = await Product.find();
       return res.json({
@@ -64,6 +66,11 @@ const controls = {
   updateAll: async (req, res) => {
     try {
       const products = req.body;
+
+      if (!isEmpty(products)) {
+        throw new ErrorStatus(400, 'Product list are empty')
+      }
+
       products.forEach(async product => {
         const id = product.id;
         if (!id) {
@@ -71,13 +78,14 @@ const controls = {
         }
         await Product.findByIdAndUpdate(id, product);
       });
+
       const data = await Product.find()
       return res.json({
-        message: 'Product updated successfully!',
-        responseBody: data
+        message: 'All product updated successfully!',
+        data
       })
     } catch (error) {
-      return res.json({ error: error.message })
+      return res.status(error.code || 500).json({ error: error.message })
     }
   },
   deleteProduct: async (req, res) => {
@@ -90,7 +98,7 @@ const controls = {
       const data = await Product.find();
       return res.json({
         message: 'Product deleted successfully!',
-        responseBody: data
+        data
       })
     } catch (error) {
       return res.json({ error })
@@ -101,7 +109,7 @@ const controls = {
       await Product.deleteMany() // For precautions
       const data = await Product.find();
       return res.json({
-        message: 'Product deleted successfully!',
+        message: 'All product deleted successfully!',
         data
       })
     } catch (error) {
@@ -110,4 +118,4 @@ const controls = {
   }
 }
 
-module.exports = controls;
+module.exports = productController;

@@ -23,8 +23,10 @@ const Checkout = ({ action, cartItems, subtotal }) => {
 
   const onPlaceOrder = useCallback(async () => {
     try {
-      await form.validateFields().catch(({ errorFields }) => {
-        scrollToTop()
+      await form.validateFields().then(() => {
+        console.log('Validation succeeded');
+      }).catch(() => {
+        console.log('Validation failed');
       });
     } catch (error) {
     }

@@ -1,13 +1,10 @@
 import axios from 'axios'
 import { isArray } from 'lodash'
 
-const BASE_URL = 'http://drynnuts.com'
+export const BASE_URL = 'http://drynnuts.com'
 const config = {}
 
 export class http {
-  constructor() {
-    this.BASE_URL = BASE_URL
-  }
   static async doGet(endpoint) {
     return await axios.get(`${BASE_URL}${getFormattedUrl(endpoint)}`, config);
   }

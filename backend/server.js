@@ -7,6 +7,7 @@ const productRouter = require('./src/routes/product.router');
 const userRouter = require('./src/routes/user.router');
 const authRouter = require('./src/routes/auth.router');
 const orderRouter = require('./src/routes/order.router')
+const shipRouter = require('./src/routes/ship.router')
 
 require('dotenv').config();
 
@@ -25,6 +26,7 @@ app.use('/product', productRouter);
 app.use('/user', userRouter)
 app.use('/auth', authRouter)
 app.use('/order', orderRouter)
+app.use('/ship', shipRouter)
 
 app.listen(PORT, () => {
   console.log(`Server up and running on ${PORT}`)
